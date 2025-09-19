@@ -66,8 +66,8 @@ h1, h2, h3, h4, b {
 	color: #0dcaf0;
 }
 
-.academic-block {
-	border-left: 2px #0dcaf0 solid;
+.pub-block {
+	border-left: 2px #e09e9e solid;
 }
 
 .student-block {
