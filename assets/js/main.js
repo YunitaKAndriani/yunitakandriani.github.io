@@ -2,6 +2,7 @@ $(document).ready(function(){
 	// By default, all the divs are hidden, if you were to add a new div, you should hide it here.
 	// If you want to show a div, you should clic on the corresponding link on the navbar.
 	$('#homeContent').hide();
+	$('#aboutme').hide();
 	$('#educationContent').hide();
 	$('#publicationsContent').hide();
 	$('#experienceContent').hide();
@@ -19,7 +20,7 @@ $(document).ready(function(){
 	// Handle 'Home' content
 	$('#home').click(function(e) {
 
-		if(!$(e.target).hasClass('active')) {
+		if(!$(e.currentTarget).hasClass('active')) {
 			clearActiveLinks();
 			activateLink(e);
 
@@ -34,7 +35,7 @@ $(document).ready(function(){
 	$('#aboutme').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		 {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -52,7 +53,7 @@ $(document).ready(function(){
 	$('#education').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		 {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -69,7 +70,7 @@ $(document).ready(function(){
 	$('#publications').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		 {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -86,7 +87,7 @@ $(document).ready(function(){
 	$('#blog').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		 {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -108,7 +109,7 @@ $(document).ready(function(){
 	$('#academic').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		 {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -125,7 +126,7 @@ $(document).ready(function(){
 	$('#particular').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		 {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -139,62 +140,62 @@ $(document).ready(function(){
 	});
 
 	// Handle 'Conferences' content
-	$('#conferences').click(function(e) {
+	// $('#conferences').click(function(e) {
 
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
+	// 	// If the div has already the class active, no need to reload the divs...
+	// 	 {
+	// 		// Update navbar
+	// 		clearActiveLinks();
+	// 		activateLink(e);
 
-			// Hide other contents
-			clearActiveDivs();
+	// 		// Hide other contents
+	// 		clearActiveDivs();
 
-			// Show current content
-			activateDiv('#conferencesContent');
-		}
-	});
+	// 		// Show current content
+	// 		activateDiv('#conferencesContent');
+	// 	}
+	// });
 
 	// Handle 'Experience' content
-	$('#experience').click(function(e) {
+	// $('#experience').click(function(e) {
 
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
+	// 	// If the div has already the class active, no need to reload the divs...
+	// 	 {
+	// 		// Update navbar
+	// 		clearActiveLinks();
+	// 		activateLink(e);
 
-			// Hide other contents
-			clearActiveDivs();
+	// 		// Hide other contents
+	// 		clearActiveDivs();
 
-			// Show current content
-			activateDiv('#experienceContent');
-		}
-	});
+	// 		// Show current content
+	// 		activateDiv('#experienceContent');
+	// 	}
+	// });
 
 	// Handle 'Projects' content
-	$('#projects').click(function(e) {
+	// $('#projects').click(function(e) {
 
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
+	// 	// If the div has already the class active, no need to reload the divs...
+	// 	 {
+	// 		// Update navbar
+	// 		clearActiveLinks();
+	// 		activateLink(e);
 
-			// Hide other contents
-			clearActiveDivs();
+	// 		// Hide other contents
+	// 		clearActiveDivs();
 
-			// Show current content
-			activateDiv('#projectsContent');
-		}
-	});
+	// 		// Show current content
+	// 		activateDiv('#projectsContent');
+	// 	}
+	// });
 
 
 	// Handle 'Photos' content
 	// $('#photos').click(function(e) {
 
 	// 	// If the div has already the class active, no need to reload the divs...
-	// 	if(!$(e.target).hasClass('active')) {
+	// 	 {
 	// 		// Update navbar
 	// 		clearActiveLinks();
 	// 		activateLink(e);
@@ -313,8 +314,15 @@ $(document).ready(function(){
     });
 
 	// Show Home by default
-	activateDiv('#homeContent');
+	// activateDiv('#homeContent');
+	// $('#home').addClass('active');
+	// $('#leftPanel').hide();
+	clearActiveDivs();
+	$('#homeContent').show().addClass('active');
+
+	clearActiveLinks();
 	$('#home').addClass('active');
+
 	$('#leftPanel').hide();
 });
 
@@ -335,10 +343,11 @@ function clearActiveDivs() {
 
 // Activates the link
 function activateLink(e) {
-	$(e.target).addClass('active');
-	
-	// Hide left panel
-	if(e.target.id == "home")
+	const target = $(e.currentTarget); // 🔥 FIX
+	target.addClass('active');
+
+	// Handle left panel here cleanly
+	if(target.attr('id') === "home")
 		$('#leftPanel').hide();
 	else
 		$('#leftPanel').show();
