@@ -104,6 +104,10 @@ $(document).ready(function(){
 		e.preventDefault();
 		$('#aboutme').click();
 	});
+	$('#publicationsBtn').click(function(e) {
+		e.preventDefault();
+		$('#publications').click();
+	});
 
 	// Handle 'Academic' content
 	$('#academic').click(function(e) {
@@ -335,19 +339,17 @@ function clearActiveLinks() {
 
 // Clears the active divs
 function clearActiveDivs() {
-	$('.container .content .active').each(function() {
-		$(this).removeClass('active');
-		$(this).hide();
-	});
+    $('.content').each(function() {
+        $(this).removeClass('active');
+        $(this).hide();
+    });
 }
 
 // Activates the link
 function activateLink(e) {
-	const target = $(e.currentTarget); // 🔥 FIX
-	target.addClass('active');
-
-	// Handle left panel here cleanly
-	if(target.attr('id') === "home")
+	$(e.target).addClass('active');
+		
+	if(e.target.id === "home")
 		$('#leftPanel').hide();
 	else
 		$('#leftPanel').show();
