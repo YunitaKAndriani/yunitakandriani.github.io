@@ -28,8 +28,13 @@ a {
 }
 
 /* GENERAL CSS */
+/* Hide left panel when Home is active */
+#homeContent.active ~ #leftPanel {
+    display: none;
+}
+
 #homeContent {
-    min-height: 70vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;

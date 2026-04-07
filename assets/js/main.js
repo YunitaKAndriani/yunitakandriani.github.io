@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	// By default, all the divs are hidden, if you were to add a new div, you should hide it here.
 	// If you want to show a div, you should clic on the corresponding link on the navbar.
+	$('#homeContent').hide();
 	$('#educationContent').hide();
 	$('#publicationsContent').hide();
 	$('#experienceContent').hide();
@@ -14,6 +15,20 @@ $(document).ready(function(){
 	// Options menu is hidden by default
 	$('#theme').hide();
 	$('#lan').hide();
+	
+	// Handle 'Home' content
+	$('#home').click(function(e) {
+
+		if(!$(e.target).hasClass('active')) {
+			clearActiveLinks();
+			activateLink(e);
+
+			clearActiveDivs();
+
+			activateDiv('#homeContent');
+		}
+
+	});
 
 	// Handle 'About Me' content
 	$('#aboutme').click(function(e) {
@@ -82,6 +97,11 @@ $(document).ready(function(){
 			// Show current content
 			activateDiv('#blogContent');
 		}
+	});
+
+	$('#aboutmeBtn').click(function(e) {
+		e.preventDefault();
+		$('#aboutme').click();
 	});
 
 	// Handle 'Academic' content
@@ -291,6 +311,11 @@ $(document).ready(function(){
         const newLang = langManager.getNextLanguage();
         langManager.setLanguage(newLang);
     });
+
+	// Show Home by default
+	activateDiv('#homeContent');
+	$('#home').addClass('active');
+	$('#leftPanel').hide();
 });
 
 // Clears the active links
@@ -313,7 +338,7 @@ function activateLink(e) {
 	$(e.target).addClass('active');
 	
 	// Hide left panel
-	if(e.target.id == "particular")
+	if(e.target.id == "home")
 		$('#leftPanel').hide();
 	else
 		$('#leftPanel').show();
