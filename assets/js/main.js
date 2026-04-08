@@ -316,24 +316,16 @@ function activateLink(e) {
 	$(e.target).addClass('active');
 	
 	// Hide left panel
-	if(e.target.id == "home")
+	if(e.target.id == "home"){
 		$('#leftPanel').hide();
 		$('#section-content').hide();
 		$('#homeContent').show();
-	else
+	}
+	else {
 		$('#leftPanel').show();
 		$('#section-content').show();
 		$('#homeContent').hide();
-}
-
-function activateLink(e) {
-	$(e.target).addClass('active');
-	
-	// Hide left panel
-	if(e.target.id == "home")
-		$('#leftPanel').hide();
-	else
-		$('#leftPanel').show();
+	}
 }
 
 // Activates the div
