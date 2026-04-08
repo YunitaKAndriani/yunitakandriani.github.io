@@ -291,7 +291,12 @@ $(document).ready(function(){
     });
 
 	// Show Home by default
-	activateDiv('#homeContent');
+	// activateDiv('#homeContent');
+	// $('#home').addClass('active');
+	// $('#leftPanel').hide();
+
+	$('#section-content').hide();   // hide all sections initially
+	$('#homeContent').show();       // show home
 	$('#home').addClass('active');
 	$('#leftPanel').hide();
 });
@@ -304,11 +309,17 @@ function clearActiveLinks() {
 }
 
 // Clears the active divs
+// function clearActiveDivs() {
+// 	$('.container .content .active').each(function() {
+// 		$(this).removeClass('active');
+// 		$(this).hide();
+// 	});
+// }
 function clearActiveDivs() {
-	$('.container .content .active').each(function() {
-		$(this).removeClass('active');
-		$(this).hide();
-	});
+	$('#aboutmeContent').hide().removeClass('active');
+	$('#academicContent').hide().removeClass('active');
+	$('#researchContent').hide().removeClass('active');
+	$('#blogContent').hide().removeClass('active');
 }
 
 // Activates the link
@@ -329,11 +340,17 @@ function activateLink(e) {
 }
 
 // Activates the div
-function activateDiv(divId) {
-	$(divId).addClass('active');
-	$(divId).show();
+// function activateDiv(divId) {
+// 	$(divId).addClass('active');
+// 	$(divId).show();
 
-	// Scrolls to the content
+// 	// Scrolls to the content
+// 	scrollToContent(divId);
+// }
+function activateDiv(divId) {
+	$('#section-content').show();   // make sure container is visible
+	$(divId).addClass('active').show();
+
 	scrollToContent(divId);
 }
 
