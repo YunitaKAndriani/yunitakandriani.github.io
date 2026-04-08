@@ -318,12 +318,12 @@ function activateLink(e) {
 	// Hide left panel
 	if(e.target.id == "home"){
 		$('#leftPanel').hide();
-		$('#section-content').hide();
+		// $('#section-content').hide();
 		$('#homeContent').show();
 	}
 	else {
 		$('#leftPanel').show();
-		$('#section-content').show();
+		// $('#section-content').show();
 		$('#homeContent').hide();
 	}
 }
