@@ -1,101 +1,368 @@
-$(document).ready(function () {
+$(document).ready(function(){
+	// By default, all the divs are hidden, if you were to add a new div, you should hide it here.
+	// If you want to show a div, you should clic on the corresponding link on the navbar.
+	$('#homeContent').hide();
+	$('#aboutme').hide();
+	$('#educationContent').hide();
+	$('#publicationsContent').hide();
+	$('#experienceContent').hide();
+	$('#conferencesContent').hide();
+	$('#projectsContent').hide();
+	$('#blogContent').hide();
+	$('#academicContent').hide();
+	$('#particularContent').hide();
+	// $('#photosContent').hide();
 
-    /**
-     * 1. Section Switching Logic
-     * Handles the transition between the full-width Home and the Sidebar layout.
-     */
-    function switchSection(id) {
-        // Validation: If the ID is empty or doesn't exist, default to home
-        if (!id || id === '') id = 'home';
+	// Options menu is hidden by default
+	$('#theme').hide();
+	$('#lan').hide();
+	
+	// Handle 'Home' content
+	$('#home').click(function(e) {
 
-        // Update Navbar Active State
-        $('.nav-link').removeClass('active');
-        // Only highlight navbar items, not action buttons
-        $(`.nav-link#${id}`).addClass('active');
+		if(!$(e.target).hasClass('active')) {
+			clearActiveLinks();
+			activateLink(e);
 
-        if (id === 'home') {
-            // Layout: Show Full-Width Home, Hide Sidebar Row
-            $('#homeContent').fadeIn(300).addClass('active');
-            $('#section-content').hide();
-        } else {
-            // Layout: Hide Home, Show Sidebar Row
-            $('#homeContent').hide().removeClass('active');
-            $('#section-content').fadeIn(300);
+			clearActiveDivs();
 
-            // Sub-content: Hide all and show the specific one
-            $('#aboutmeContent, #educationContent, #publicationsContent, #blogContent').hide();
-            $(`#${id}Content`).fadeIn(300);
-        }
+			activateDiv('#homeContent');
+		}
 
-        // UX: Scroll to top and update URL hash without jumping
-        window.scrollTo(0, 0);
-        if (id !== 'home') {
-            history.pushState(null, null, '#' + id);
-        } else {
-            history.pushState(null, null, window.location.pathname);
-        }
-    }
+	});
 
-    /**
-     * 2. Event Handlers for Navigation
-     */
-    // Handles Navbar links and the "About Me / Publications" buttons on the Home screen
-    $('.nav-link, .btn').on('click', function (e) {
-        const href = $(this).attr('href');
-        const targetId = $(this).attr('id');
+	// Handle 'About Me' content
+	$('#aboutme').click(function(e) {
 
-        // If it's a real link (like the CV PDF), let it open normally
-        if (href && href !== '#' && !href.startsWith('#')) {
-            return; 
-        }
+		// If the div has already the class active, no need to reload the divs...
+		if(!$(e.target).hasClass('active')) {
+			// Update navbar
+			clearActiveLinks();
+			activateLink(e);
 
-        if (targetId) {
-            e.preventDefault();
-            // Remove 'Btn' suffix if clicked from the Home landing page buttons
-            const cleanId = targetId.replace('Btn', '');
-            switchSection(cleanId);
-        }
+			// Hide other contents
+			clearActiveDivs();
+
+			// Show current content
+			activateDiv('#aboutmeContent');
+		}
+
+	});
+
+	// Handle 'Education' content
+	$('#education').click(function(e) {
+
+		// If the div has already the class active, no need to reload the divs...
+		if(!$(e.target).hasClass('active')) {
+			// Update navbar
+			clearActiveLinks();
+			activateLink(e);
+
+			// Hide other contents
+			clearActiveDivs();
+
+			// Show current content
+			activateDiv('#educationContent');
+		}
+	});
+
+	// Handle 'Publications' content
+	$('#publications').click(function(e) {
+
+		// If the div has already the class active, no need to reload the divs...
+		if(!$(e.target).hasClass('active')) {
+			// Update navbar
+			clearActiveLinks();
+			activateLink(e);
+
+			// Hide other contents
+			clearActiveDivs();
+
+			// Show current content
+			activateDiv('#publicationsContent');
+		}
+	});
+
+	// Handle 'Blog' content
+	$('#blog').click(function(e) {
+
+		// If the div has already the class active, no need to reload the divs...
+		if(!$(e.target).hasClass('active')) {
+			// Update navbar
+			clearActiveLinks();
+			activateLink(e);
+
+			// Hide other contents
+			clearActiveDivs();
+
+			// Show current content
+			activateDiv('#blogContent');
+		}
+	});
+
+	$('#aboutmeBtn').click(function(e) {
+		e.preventDefault();
+		$('#aboutme').click();
+	});
+	$('#publicationBtn').click(function(e) {
+		e.preventDefault();
+		$('#publications').click();
+	});
+
+	// Handle 'Academic' content
+	$('#academic').click(function(e) {
+
+		// If the div has already the class active, no need to reload the divs...
+		if(!$(e.target).hasClass('active')) {
+			// Update navbar
+			clearActiveLinks();
+			activateLink(e);
+
+			// Hide other contents
+			clearActiveDivs();
+
+			// Show current content
+			activateDiv('#academicContent');
+		}
+	});
+
+	// Handle 'Particular' content
+	$('#particular').click(function(e) {
+
+		// If the div has already the class active, no need to reload the divs...
+		if(!$(e.target).hasClass('active')) {
+			// Update navbar
+			clearActiveLinks();
+			activateLink(e);
+
+			// Hide other contents
+			clearActiveDivs();
+
+			// Show current content
+			activateDiv('#particularContent');
+		}
+	});
+
+	// Handle 'Conferences' content
+	$('#conferences').click(function(e) {
+
+		// If the div has already the class active, no need to reload the divs...
+		if(!$(e.target).hasClass('active')) {
+			// Update navbar
+			clearActiveLinks();
+			activateLink(e);
+
+			// Hide other contents
+			clearActiveDivs();
+
+			// Show current content
+			activateDiv('#conferencesContent');
+		}
+	});
+
+	// Handle 'Experience' content
+	$('#experience').click(function(e) {
+
+		// If the div has already the class active, no need to reload the divs...
+		if(!$(e.target).hasClass('active')) {
+			// Update navbar
+			clearActiveLinks();
+			activateLink(e);
+
+			// Hide other contents
+			clearActiveDivs();
+
+			// Show current content
+			activateDiv('#experienceContent');
+		}
+	});
+
+	// Handle 'Projects' content
+	$('#projects').click(function(e) {
+
+		// If the div has already the class active, no need to reload the divs...
+		if(!$(e.target).hasClass('active')) {
+			// Update navbar
+			clearActiveLinks();
+			activateLink(e);
+
+			// Hide other contents
+			clearActiveDivs();
+
+			// Show current content
+			activateDiv('#projectsContent');
+		}
+	});
+
+
+	// Handle 'Photos' content
+	// $('#photos').click(function(e) {
+
+	// 	// If the div has already the class active, no need to reload the divs...
+	// 	if(!$(e.target).hasClass('active')) {
+	// 		// Update navbar
+	// 		clearActiveLinks();
+	// 		activateLink(e);
+
+	// 		// Hide other contents
+	// 		clearActiveDivs();
+
+	// 		// Show current content
+	// 		activateDiv('#photosContent');
+	// 	}
+	// });
+
+	// **************************** //
+	// Handles the Publications events
+	// **************************** //
+
+	// Copies the citation to the clipboard
+	$(document).on("click", "#citation", function(){
+		var text = $(this).parent().parent().next()[0].innerHTML;
+
+		navigator.clipboard.writeText(text);
+
+		toastr.success('Citation copied');
+	});
+
+	// ******************** //
+	// Handles the Blog events
+	// ******************** //
+
+	// Opens the blog post in a new tab
+	$('.clickable').click(function(e) {
+		window.open($(e.currentTarget)[0].childNodes[1].innerText, '_blank').focus();
+	});
+
+
+	// *************************** //
+	// Handle the rest of the content
+	// Omit this part if you don't have more content
+	// *************************** //
+	
+	// If the user has not selected a theme, then select the default one according to the user's preferences
+	if(localStorage.getItem("theme") === null){
+		localStorage.theme = "light";
+		if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+			localStorage.theme = "dark";
+	}
+
+	// Always load the light theme
+	$('<link>').appendTo('head').attr({
+		type: 'text/css', 
+		rel: 'stylesheet',
+		href: 'assets/css/light.css'
+	});
+
+	// If the user has the dark theme, then replace the light theme with the dark one
+	if (localStorage.theme == "dark") {
+		$("link[href='assets/css/light.css']").remove();
+		$('<link>').appendTo('head').attr({
+			type: 'text/css', 
+			rel: 'stylesheet',
+			href: 'assets/css/dark.css'
+		});
+		$('#theme').empty().append("<i class='fa-duotone fa-lightbulb-slash'></i>");
+	}
+
+	// Controls the option menu toggler to show/hide the language and theme selectors
+	$('#options-toggler').click(function(e) {
+		if(!$(e.currentTarget).hasClass('active')) {
+			$(e.currentTarget).addClass('active');
+			$('#theme').show("fast");
+			$('#lan').show("fast");
+		}
+		else {
+			$(e.currentTarget).removeClass('active');
+			$('#theme').hide("fast");
+			$('#lan').hide("fast");
+		}
+	})
+
+	// Alternates between light and dark themes
+	$('#theme').click(function(e) {
+		if(localStorage.theme != "dark"){
+			$('#theme').empty().append("<i class='fa-duotone fa-lightbulb-slash'></i>");
+
+			localStorage.theme = "dark"
+			
+			$("link[href='assets/css/light.css']").remove();
+			$('<link>').appendTo('head').attr({
+				type: 'text/css', 
+				rel: 'stylesheet',
+				href: 'assets/css/dark.css'
+			});
+		}
+		else {
+			$('#theme').empty().append("<i class='fa-duotone fa-lightbulb'></i>");
+
+			localStorage.theme = "light"
+			
+			$("link[href='assets/css/dark.css']").remove();
+			$('<link>').appendTo('head').attr({
+				type: 'text/css', 
+				rel: 'stylesheet',
+				href: 'assets/css/light.css'
+			});
+		}
+	})
+
+	
+	// Create the language manager
+	const langManager = new LanguageManager();
+	
+	// Alternates between the different available languages
+	$('#lan').click(function() {
+        const newLang = langManager.getNextLanguage();
+        langManager.setLanguage(newLang);
     });
 
-    /**
-     * 3. Theme Toggler
-     */
-    // Load saved theme
-    if (localStorage.getItem('theme') === 'dark') {
-        $('body').addClass('dark-theme');
-        $('#theme i').removeClass('fa-lightbulb').addClass('fa-moon');
-    }
-
-    $('#theme').on('click', function() {
-        $('body').toggleClass('dark-theme');
-        const isDark = $('body').hasClass('dark-theme');
-        
-        // Toggle Icon
-        $(this).find('i').toggleClass('fa-lightbulb fa-moon');
-        
-        // Save preference
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        toastr.info(isDark ? 'Dark Mode Enabled' : 'Light Mode Enabled', '', { timeOut: 1000 });
-    });
-
-    /**
-     * 4. BibTeX Citation Toggle
-     */
-    $(document).on('click', '#citation', function(e) {
-        e.preventDefault();
-        // Finds the next div with the citation text regardless of wrapping
-        $(this).closest('.pub-block').find('.d-none, .citation-box').first().slideToggle(200).toggleClass('d-block');
-    });
-
-    /**
-     * 5. Initial Load Handling
-     */
-    const currentHash = window.location.hash.replace('#', '');
-    const validSections = ['aboutme', 'education', 'publications', 'blog'];
-    
-    if (validSections.includes(currentHash)) {
-        switchSection(currentHash);
-    } else {
-        switchSection('home');
-    }
+	// Show Home by default
+	activateDiv('#homeContent');
+	$('#home').addClass('active');
+	$('#leftPanel').hide();
 });
+
+// Clears the active links
+function clearActiveLinks() {
+	$('#navbarList .nav-item .nav-link').each(function() {
+		$(this).removeClass('active');
+	});
+}
+
+// Clears the active divs
+function clearActiveDivs() {
+	$('.container .content .active').each(function() {
+		$(this).removeClass('active');
+		$(this).hide();
+	});
+}
+
+// Activates the link
+function activateLink(e) {
+	$(e.target).addClass('active');
+	
+	// Hide left panel
+	if(e.target.id == "home")
+		$('#leftPanel').hide();
+	else
+		$('#leftPanel').show();
+}
+
+// Activates the div
+function activateDiv(divId) {
+	$(divId).addClass('active');
+	$(divId).show();
+
+	// Scrolls to the content
+	scrollToContent(divId);
+}
+
+// Scrolls to the content
+function scrollToContent(divId) {
+	if ($(window).width() < 751) {
+		$('html, body').animate({
+			scrollTop: $(divId).offset().top
+		}, 1);
+	}
+}
