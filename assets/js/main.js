@@ -19,6 +19,7 @@ $(document).ready(function(){
 	
 	// Handle 'Home' content
 	$('#home').click(function(e) {
+		e.preventDefault();
 
 		if(!$(e.currentTarget).hasClass('active')) {
 			clearActiveLinks();
@@ -33,6 +34,7 @@ $(document).ready(function(){
 
 	// Handle 'About Me' content
 	$('#aboutme').click(function(e) {
+		e.preventDefault();
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.currentTarget).hasClass('active')) {
@@ -49,8 +51,9 @@ $(document).ready(function(){
 
 	});
 
-	// Handle 'academic' content
+	// Handle 'Academic' content
 	$('#academic').click(function(e) {
+		e.preventDefault();
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.currentTarget).hasClass('active')) {
@@ -68,6 +71,7 @@ $(document).ready(function(){
 
 	// Handle 'research' content
 	$('#research').click(function(e) {
+		e.preventDefault();
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.currentTarget).hasClass('active')) {
@@ -85,6 +89,7 @@ $(document).ready(function(){
 
 	// Handle 'Blog' content
 	$('#blog').click(function(e) {
+		e.preventDefault();
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.currentTarget).hasClass('active')) {
@@ -105,27 +110,11 @@ $(document).ready(function(){
 		$('#aboutme').click();
 	});
 
-	$('#researchBtn').click(function(e) {
-		e.preventDefault();
-		$('#research').click();
-	});
+	// $('#researchBtn').click(function(e) {
+	// 	e.preventDefault();
+	// 	$('#research').click();
+	// });
 
-	// Handle 'Academic' content
-	$('#academic').click(function(e) {
-
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.currentTarget).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
-
-			// Hide other contents
-			clearActiveDivs();
-
-			// Show current content
-			activateDiv('#academicContent');
-		}
-	});
 
 	// Handle 'Particular' content
 	$('#particular').click(function(e) {
@@ -201,7 +190,7 @@ $(document).ready(function(){
 	// **************************** //
 
 	// Copies the citation to the clipboard
-	$(document).on("click", "#citation", function(){
+	$(document).on("click", ".citation", function(){
 		var text = $(this).parent().parent().next()[0].innerHTML;
 
 		navigator.clipboard.writeText(text);
@@ -323,6 +312,20 @@ function clearActiveDivs() {
 }
 
 // Activates the link
+function activateLink(e) {
+	$(e.target).addClass('active');
+	
+	// Hide left panel
+	if(e.target.id == "home")
+		$('#leftPanel').hide();
+		$('#section-content').hide();
+		$('#homeContent').show();
+	else
+		$('#leftPanel').show();
+		$('#section-content').show();
+		$('#homeContent').hide();
+}
+
 function activateLink(e) {
 	$(e.target).addClass('active');
 	
