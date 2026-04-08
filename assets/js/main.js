@@ -2,7 +2,7 @@ $(document).ready(function(){
 	// By default, all the divs are hidden, if you were to add a new div, you should hide it here.
 	// If you want to show a div, you should clic on the corresponding link on the navbar.
 	$('#homeContent').hide();
-	$('#aboutme').hide();
+	$('#aboutmeContent').hide();
 	$('#educationContent').hide();
 	$('#publicationsContent').hide();
 	$('#experienceContent').hide();
@@ -20,7 +20,7 @@ $(document).ready(function(){
 	// Handle 'Home' content
 	$('#home').click(function(e) {
 
-		if(!$(e.target).hasClass('active')) {
+		if(!$(e.currentTarget).hasClass('active')) {
 			clearActiveLinks();
 			activateLink(e);
 
@@ -35,7 +35,7 @@ $(document).ready(function(){
 	$('#aboutme').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		if(!$(e.currentTarget).hasClass('active')) {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -53,7 +53,7 @@ $(document).ready(function(){
 	$('#education').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		if(!$(e.currentTarget).hasClass('active')) {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -70,7 +70,7 @@ $(document).ready(function(){
 	$('#publications').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		if(!$(e.currentTarget).hasClass('active')) {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -87,7 +87,7 @@ $(document).ready(function(){
 	$('#blog').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		if(!$(e.currentTarget).hasClass('active')) {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -104,7 +104,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		$('#aboutme').click();
 	});
-	$('#publicationBtn').click(function(e) {
+	$('#publicationsBtn').click(function(e) {
 		e.preventDefault();
 		$('#publications').click();
 	});
@@ -113,7 +113,7 @@ $(document).ready(function(){
 	$('#academic').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		if(!$(e.currentTarget).hasClass('active')) {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -130,7 +130,7 @@ $(document).ready(function(){
 	$('#particular').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		if(!$(e.currentTarget).hasClass('active')) {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -147,7 +147,7 @@ $(document).ready(function(){
 	$('#conferences').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		if(!$(e.currentTarget).hasClass('active')) {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -164,7 +164,7 @@ $(document).ready(function(){
 	$('#experience').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		if(!$(e.currentTarget).hasClass('active')) {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -181,7 +181,7 @@ $(document).ready(function(){
 	$('#projects').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.target).hasClass('active')) {
+		if(!$(e.currentTarget).hasClass('active')) {
 			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
@@ -199,7 +199,7 @@ $(document).ready(function(){
 	// $('#photos').click(function(e) {
 
 	// 	// If the div has already the class active, no need to reload the divs...
-	// 	if(!$(e.target).hasClass('active')) {
+	// 	if(!$(e.currentTarget).hasClass('active')) {
 	// 		// Update navbar
 	// 		clearActiveLinks();
 	// 		activateLink(e);
