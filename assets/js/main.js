@@ -3,14 +3,14 @@ $(document).ready(function(){
 	// If you want to show a div, you should clic on the corresponding link on the navbar.
 	$('#homeContent').hide();
 	$('#aboutmeContent').hide();
-	$('#educationContent').hide();
-	$('#publicationsContent').hide();
-	$('#experienceContent').hide();
-	$('#conferencesContent').hide();
-	$('#projectsContent').hide();
-	$('#blogContent').hide();
 	$('#academicContent').hide();
-	$('#particularContent').hide();
+	$('#researchContent').hide();
+	// $('#experienceContent').hide();
+	// $('#conferencesContent').hide();
+	// $('#projectsContent').hide();
+	$('#blogContent').hide();
+	// $('#academicContent').hide();
+	// $('#particularContent').hide();
 	// $('#photosContent').hide();
 
 	// Options menu is hidden by default
@@ -49,8 +49,8 @@ $(document).ready(function(){
 
 	});
 
-	// Handle 'Education' content
-	$('#education').click(function(e) {
+	// Handle 'academic' content
+	$('#academic').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.currentTarget).hasClass('active')) {
@@ -62,12 +62,12 @@ $(document).ready(function(){
 			clearActiveDivs();
 
 			// Show current content
-			activateDiv('#educationContent');
+			activateDiv('#academicContent');
 		}
 	});
 
-	// Handle 'Publications' content
-	$('#publications').click(function(e) {
+	// Handle 'research' content
+	$('#research').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.currentTarget).hasClass('active')) {
@@ -79,7 +79,7 @@ $(document).ready(function(){
 			clearActiveDivs();
 
 			// Show current content
-			activateDiv('#publicationsContent');
+			activateDiv('#researchContent');
 		}
 	});
 
@@ -104,9 +104,10 @@ $(document).ready(function(){
 		e.preventDefault();
 		$('#aboutme').click();
 	});
-	$('#publicationsBtn').click(function(e) {
+
+	$('#researchBtn').click(function(e) {
 		e.preventDefault();
-		$('#publications').click();
+		$('#research').click();
 	});
 
 	// Handle 'Academic' content
@@ -143,60 +144,8 @@ $(document).ready(function(){
 		}
 	});
 
-	// Handle 'Conferences' content
-	$('#conferences').click(function(e) {
-
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.currentTarget).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
-
-			// Hide other contents
-			clearActiveDivs();
-
-			// Show current content
-			activateDiv('#conferencesContent');
-		}
-	});
-
-	// Handle 'Experience' content
-	$('#experience').click(function(e) {
-
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.currentTarget).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
-
-			// Hide other contents
-			clearActiveDivs();
-
-			// Show current content
-			activateDiv('#experienceContent');
-		}
-	});
-
-	// Handle 'Projects' content
-	$('#projects').click(function(e) {
-
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.currentTarget).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
-
-			// Hide other contents
-			clearActiveDivs();
-
-			// Show current content
-			activateDiv('#projectsContent');
-		}
-	});
-
-
-	// Handle 'Photos' content
-	// $('#photos').click(function(e) {
+	// // Handle 'Conferences' content
+	// $('#conferences').click(function(e) {
 
 	// 	// If the div has already the class active, no need to reload the divs...
 	// 	if(!$(e.currentTarget).hasClass('active')) {
@@ -208,12 +157,47 @@ $(document).ready(function(){
 	// 		clearActiveDivs();
 
 	// 		// Show current content
-	// 		activateDiv('#photosContent');
+	// 		activateDiv('#conferencesContent');
 	// 	}
 	// });
 
+	// // Handle 'Experience' content
+	// $('#experience').click(function(e) {
+
+	// 	// If the div has already the class active, no need to reload the divs...
+	// 	if(!$(e.currentTarget).hasClass('active')) {
+	// 		// Update navbar
+	// 		clearActiveLinks();
+	// 		activateLink(e);
+
+	// 		// Hide other contents
+	// 		clearActiveDivs();
+
+	// 		// Show current content
+	// 		activateDiv('#experienceContent');
+	// 	}
+	// });
+
+	// // Handle 'Projects' content
+	// $('#projects').click(function(e) {
+
+	// 	// If the div has already the class active, no need to reload the divs...
+	// 	if(!$(e.currentTarget).hasClass('active')) {
+	// 		// Update navbar
+	// 		clearActiveLinks();
+	// 		activateLink(e);
+
+	// 		// Hide other contents
+	// 		clearActiveDivs();
+
+	// 		// Show current content
+	// 		activateDiv('#projectsContent');
+	// 	}
+	// });
+
+
 	// **************************** //
-	// Handles the Publications events
+	// Handles the research events
 	// **************************** //
 
 	// Copies the citation to the clipboard
