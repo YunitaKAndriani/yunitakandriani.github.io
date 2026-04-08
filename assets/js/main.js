@@ -19,7 +19,7 @@ $(document).ready(function(){
 	
 	// Handle 'Home' content
 	$('#home').click(function(e) {
-		e.preventDefault();
+		// e.preventDefault();
 
 		if(!$(e.currentTarget).hasClass('active')) {
 			clearActiveLinks();
@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 	// Handle 'About Me' content
 	$('#aboutme').click(function(e) {
-		e.preventDefault();
+		// e.preventDefault();
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.currentTarget).hasClass('active')) {
@@ -53,7 +53,7 @@ $(document).ready(function(){
 
 	// Handle 'Academic' content
 	$('#academic').click(function(e) {
-		e.preventDefault();
+		// e.preventDefault();
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.currentTarget).hasClass('active')) {
@@ -71,7 +71,7 @@ $(document).ready(function(){
 
 	// Handle 'research' content
 	$('#research').click(function(e) {
-		e.preventDefault();
+		// e.preventDefault();
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.currentTarget).hasClass('active')) {
@@ -89,7 +89,7 @@ $(document).ready(function(){
 
 	// Handle 'Blog' content
 	$('#blog').click(function(e) {
-		e.preventDefault();
+		// e.preventDefault();
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.currentTarget).hasClass('active')) {
