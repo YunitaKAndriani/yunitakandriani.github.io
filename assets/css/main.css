@@ -295,7 +295,7 @@ li > .active {
 	margin-bottom:50px;
 }
 
-#homeContent::before {
+/* #homeContent::before {
 	content: "";
 	position: absolute;
 	top: 0;
@@ -305,4 +305,4 @@ li > .active {
 	background: rgba(249, 153, 153, 0.2); /* adjust darkness */
 	backdrop-filter: blur(3px);
 	z-index: 1;
-}
+} */
