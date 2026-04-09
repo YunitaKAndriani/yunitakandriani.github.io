@@ -34,10 +34,19 @@ a {
 }
 
 #homeContent {
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	position: relative;
+	min-height: 80vh;
+
+	background: url('assets/images/BG.png') no-repeat center center;
+	background-size: cover;
+
+	/* dark overlay effect */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin-top:50px;
+	margin-bottom:50px;
 }
 
 #main-content {
@@ -279,21 +288,6 @@ li > .active {
 	}
 }
 
-#homeContent {
-	position: relative;
-	min-height: 80vh;
-
-	background: url('assets/images/BG.png') no-repeat center center;
-	background-size: cover;
-
-	/* dark overlay effect */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	margin-top:50px;
-	margin-bottom:50px;
-}
 
 /* #homeContent::before {
 	content: "";
