@@ -278,3 +278,31 @@ li > .active {
 		margin-left: 40px;
 	}
 }
+
+#homeContent {
+	position: relative;
+	min-height: 100vh;
+
+	background: url('assets/images/BG.png') no-repeat center center;
+	background-size: cover;
+
+	/* dark overlay effect */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin-top:40px;
+	margin-bottom:40px;
+}
+
+#homeContent::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4); /* adjust darkness */
+	backdrop-filter: blur(3px);
+	z-index: 1;
+}
