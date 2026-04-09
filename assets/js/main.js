@@ -235,7 +235,7 @@ $(document).ready(function(){
 			rel: 'stylesheet',
 			href: 'assets/css/dark.css'
 		});
-		$('#theme').empty().append("<i class='fa-duotone fa-lightbulb-slash'></i>");
+		$('#theme').empty().append("<i class='fa-solid fa-lightbulb-slash'></i>");
 	}
 
 	// Controls the option menu toggler to show/hide the language and theme selectors
@@ -255,7 +255,7 @@ $(document).ready(function(){
 	// Alternates between light and dark themes
 	$('#theme').click(function(e) {
 		if(localStorage.theme != "dark"){
-			$('#theme').empty().append("<i class='fa-duotone fa-lightbulb-slash'></i>");
+			$('#theme').empty().append("<i class='fa-solid fa-lightbulb-slash'></i>");
 
 			localStorage.theme = "dark"
 			
@@ -267,7 +267,7 @@ $(document).ready(function(){
 			});
 		}
 		else {
-			$('#theme').empty().append("<i class='fa-duotone fa-lightbulb'></i>");
+			$('#theme').empty().append("<i class='fa-solid fa-lightbulb'></i>");
 
 			localStorage.theme = "light"
 			
