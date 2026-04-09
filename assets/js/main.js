@@ -323,19 +323,52 @@ function clearActiveDivs() {
 }
 
 // Activates the link
+// function activateLink(e) {
+// 	$(e.target).addClass('active');
+	
+// 	// Hide left panel
+// 	if(e.target.id == "home"){
+// 		$('#leftPanel').hide();
+// 		// $('#section-content').hide();
+// 		$('#homeContent').show();
+// 	}
+// 	else {
+// 		$('#leftPanel').show();
+// 		// $('#section-content').show();
+// 		$('#homeContent').hide();
+// 	}
+// }
+
 function activateLink(e) {
 	$(e.target).addClass('active');
-	
-	// Hide left panel
-	if(e.target.id == "home"){
-		$('#leftPanel').hide();
-		// $('#section-content').hide();
+
+	const id = e.target.id;
+
+	if (id === "home") {
 		$('#homeContent').show();
+		$('#section-content').hide();
+		return;
 	}
-	else {
+
+	// show main section
+	$('#homeContent').hide();
+	$('#section-content').show();
+
+	// LEFT PANEL LOGIC
+	if (id === "aboutme") {
 		$('#leftPanel').show();
-		// $('#section-content').show();
-		$('#homeContent').hide();
+
+		// shrink main content
+		$('#mainPanel')
+			.removeClass('col-md-12')
+			.addClass('col-md-8 offset-md-1');
+	} else {
+		$('#leftPanel').hide();
+
+		// expand main content FULL WIDTH
+		$('#mainPanel')
+			.removeClass('col-md-8 offset-md-1')
+			.addClass('col-md-12');
 	}
 }
 
