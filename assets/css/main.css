@@ -490,3 +490,12 @@ li > .active {
 	/* backdrop-filter: blur(3px);
 	z-index: 1;
 } */
+.quote-text {
+	font-size: 1.05rem;
+	line-height: 1.6;
+
+	border-left: 2px solid rgba(0,0,0,0.2);
+	padding-left: 12px;
+
+	color: #555;
+}
