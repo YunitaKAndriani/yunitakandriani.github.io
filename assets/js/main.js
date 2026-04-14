@@ -75,14 +75,11 @@ $(document).ready(function(){
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.currentTarget).hasClass('active')) {
-			// Update navbar
 			clearActiveLinks();
 			activateLink(e);
 
-			// Hide other contents
 			clearActiveDivs();
 
-			// Show current content
 			activateDiv('#researchContent');
 		}
 	});
