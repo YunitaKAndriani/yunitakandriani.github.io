@@ -1,394 +1,202 @@
 $(document).ready(function(){
-	// By default, all the divs are hidden, if you were to add a new div, you should hide it here.
-	// If you want to show a div, you should clic on the corresponding link on the navbar.
+
+	// Hide all sections initially
 	$('#homeContent').hide();
 	$('#aboutmeContent').hide();
 	$('#academicContent').hide();
 	$('#researchContent').hide();
-	// $('#experienceContent').hide();
-	// $('#conferencesContent').hide();
-	// $('#projectsContent').hide();
 	$('#blogContent').hide();
-	// $('#academicContent').hide();
-	// $('#particularContent').hide();
-	// $('#photosContent').hide();
 
 	// Options menu is hidden by default
 	$('#theme').hide();
 	$('#lan').hide();
-	
-	// Handle 'Home' content
-	$('#home').click(function(e) {
-		// e.preventDefault();
 
-		if(!$(e.currentTarget).hasClass('active')) {
+	// ─── NAV: Home ───────────────────────────────────────────
+	$('#home').click(function(e) {
+		if (!$(e.currentTarget).hasClass('active')) {
 			clearActiveLinks();
 			activateLink(e);
-
 			clearActiveDivs();
-
 			activateDiv('#homeContent');
 		}
-
 	});
 
-	// Handle 'About Me' content
+	// ─── NAV: About Me ───────────────────────────────────────
 	$('#aboutme').click(function(e) {
-		// e.preventDefault();
-
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.currentTarget).hasClass('active')) {
-			// Update navbar
+		if (!$(e.currentTarget).hasClass('active')) {
 			clearActiveLinks();
 			activateLink(e);
-
-			// Hide other contents
 			clearActiveDivs();
-
-			// Show current content
 			activateDiv('#aboutmeContent');
 		}
-
 	});
 
-	// Handle 'Academic' content
+	// ─── NAV: Academic ───────────────────────────────────────
 	$('#academic').click(function(e) {
-		// e.preventDefault();
-
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.currentTarget).hasClass('active')) {
-			// Update navbar
+		if (!$(e.currentTarget).hasClass('active')) {
 			clearActiveLinks();
 			activateLink(e);
-
-			// Hide other contents
 			clearActiveDivs();
-
-			// Show current content
 			activateDiv('#academicContent');
 		}
 	});
 
-	// Handle 'research' content
+	// ─── NAV: Research ───────────────────────────────────────
 	$('#research').click(function(e) {
-		// e.preventDefault();
-
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.currentTarget).hasClass('active')) {
+		if (!$(e.currentTarget).hasClass('active')) {
 			clearActiveLinks();
 			activateLink(e);
-
 			clearActiveDivs();
-
 			activateDiv('#researchContent');
 		}
 	});
 
-	// Handle 'Blog' content
+	// ─── NAV: Blog ───────────────────────────────────────────
 	$('#blog').click(function(e) {
-		// e.preventDefault();
-
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.currentTarget).hasClass('active')) {
-			// Update navbar
+		if (!$(e.currentTarget).hasClass('active')) {
 			clearActiveLinks();
 			activateLink(e);
-
-			// Hide other contents
 			clearActiveDivs();
-
-			// Show current content
 			activateDiv('#blogContent');
 		}
 	});
 
+	// ─── Hero "About Me" button ───────────────────────────────
 	$('#aboutmeBtn').click(function(e) {
 		e.preventDefault();
 		$('#aboutme').click();
 	});
 
-	// $('#researchBtn').click(function(e) {
-	// 	e.preventDefault();
-	// 	$('#research').click();
-	// });
-
-
-	// Handle 'Particular' content
-	$('#particular').click(function(e) {
-
-		// If the div has already the class active, no need to reload the divs...
-		if(!$(e.currentTarget).hasClass('active')) {
-			// Update navbar
-			clearActiveLinks();
-			activateLink(e);
-
-			// Hide other contents
-			clearActiveDivs();
-
-			// Show current content
-			activateDiv('#particularContent');
+	// ─── BibTeX copy (FIX: was ".citation", now matches HTML class) ──
+	$(document).on('click', '.citation', function(e) {
+		e.preventDefault();
+		// Navigate: <a.citation> → <span> → <div.pub-links> → next sibling <div.d-none>
+		var bibtex = $(this).closest('.pub-links').next('.d-none')[0];
+		if (bibtex) {
+			navigator.clipboard.writeText(bibtex.innerText.trim())
+				.then(() => toastr.success('BibTeX copied to clipboard'))
+				.catch(() => toastr.error('Could not copy — please try manually'));
 		}
 	});
 
-	// // Handle 'Conferences' content
-	// $('#conferences').click(function(e) {
-
-	// 	// If the div has already the class active, no need to reload the divs...
-	// 	if(!$(e.currentTarget).hasClass('active')) {
-	// 		// Update navbar
-	// 		clearActiveLinks();
-	// 		activateLink(e);
-
-	// 		// Hide other contents
-	// 		clearActiveDivs();
-
-	// 		// Show current content
-	// 		activateDiv('#conferencesContent');
-	// 	}
-	// });
-
-	// // Handle 'Experience' content
-	// $('#experience').click(function(e) {
-
-	// 	// If the div has already the class active, no need to reload the divs...
-	// 	if(!$(e.currentTarget).hasClass('active')) {
-	// 		// Update navbar
-	// 		clearActiveLinks();
-	// 		activateLink(e);
-
-	// 		// Hide other contents
-	// 		clearActiveDivs();
-
-	// 		// Show current content
-	// 		activateDiv('#experienceContent');
-	// 	}
-	// });
-
-	// // Handle 'Projects' content
-	// $('#projects').click(function(e) {
-
-	// 	// If the div has already the class active, no need to reload the divs...
-	// 	if(!$(e.currentTarget).hasClass('active')) {
-	// 		// Update navbar
-	// 		clearActiveLinks();
-	// 		activateLink(e);
-
-	// 		// Hide other contents
-	// 		clearActiveDivs();
-
-	// 		// Show current content
-	// 		activateDiv('#projectsContent');
-	// 	}
-	// });
-
-
-	// **************************** //
-	// Handles the research events
-	// **************************** //
-
-	// Copies the citation to the clipboard
-	$(document).on("click", ".citation", function(){
-		var text = $(this).parent().parent().next()[0].innerHTML;
-
-		navigator.clipboard.writeText(text);
-
-		toastr.success('Citation copied');
-	});
-
-	// ******************** //
-	// Handles the Blog events
-	// ******************** //
-
-	// Opens the blog post in a new tab
+	// ─── Clickable blog cards ─────────────────────────────────
 	$('.clickable').click(function(e) {
 		window.open($(e.currentTarget)[0].childNodes[1].innerText, '_blank').focus();
 	});
 
-
-	// *************************** //
-	// Handle the rest of the content
-	// Omit this part if you don't have more content
-	// *************************** //
-	
-	// If the user has not selected a theme, then select the default one according to the user's preferences
-	if(localStorage.getItem("theme") === null){
-		localStorage.theme = "light";
-		if (window.matchMedia('(prefers-color-scheme: dark)').matches)
-			localStorage.theme = "dark";
+	// ─── Theme preference ─────────────────────────────────────
+	if (localStorage.getItem('theme') === null) {
+		localStorage.theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	}
 
-	// Always load the light theme
-	$('<link>').appendTo('head').attr({
-		type: 'text/css', 
-		rel: 'stylesheet',
-		href: 'assets/css/light.css'
+	// Load the correct theme on startup
+	if (localStorage.theme === 'dark') {
+		loadTheme('dark');
+		$('#theme').empty().append("<i class='fa-solid fa-sun'></i>");
+	} else {
+		loadTheme('light');
+		$('#theme').empty().append("<i class='fa-solid fa-moon'></i>");
+	}
+
+	// ─── Options toggler ──────────────────────────────────────
+	$('#options-toggler').click(function(e) {
+		if (!$(e.currentTarget).hasClass('active')) {
+			$(e.currentTarget).addClass('active');
+			$('#theme').show('fast');
+			$('#lan').show('fast');
+		} else {
+			$(e.currentTarget).removeClass('active');
+			$('#theme').hide('fast');
+			$('#lan').hide('fast');
+		}
 	});
 
-	// If the user has the dark theme, then replace the light theme with the dark one
-	if (localStorage.theme == "dark") {
-		$("link[href='assets/css/light.css']").remove();
-		$('<link>').appendTo('head').attr({
-			type: 'text/css', 
-			rel: 'stylesheet',
-			href: 'assets/css/dark.css'
-		});
-		$('#theme').empty().append("<i class='fa-solid fa-lightbulb-slash'></i>");
-	}
-
-	// Controls the option menu toggler to show/hide the language and theme selectors
-	$('#options-toggler').click(function(e) {
-		if(!$(e.currentTarget).hasClass('active')) {
-			$(e.currentTarget).addClass('active');
-			$('#theme').show("fast");
-			$('#lan').show("fast");
+	// ─── Toggle light / dark ─────────────────────────────────
+	$('#theme').click(function() {
+		if (localStorage.theme !== 'dark') {
+			localStorage.theme = 'dark';
+			loadTheme('dark');
+			$('#theme').empty().append("<i class='fa-solid fa-sun'></i>");
+		} else {
+			localStorage.theme = 'light';
+			loadTheme('light');
+			$('#theme').empty().append("<i class='fa-solid fa-moon'></i>");
 		}
-		else {
-			$(e.currentTarget).removeClass('active');
-			$('#theme').hide("fast");
-			$('#lan').hide("fast");
-		}
-	})
+	});
 
-	// Alternates between light and dark themes
-	$('#theme').click(function(e) {
-		if(localStorage.theme != "dark"){
-			$('#theme').empty().append("<i class='fa-solid fa-lightbulb-slash'></i>");
-
-			localStorage.theme = "dark"
-			
-			$("link[href='assets/css/light.css']").remove();
-			$('<link>').appendTo('head').attr({
-				type: 'text/css', 
-				rel: 'stylesheet',
-				href: 'assets/css/dark.css'
-			});
-		}
-		else {
-			$('#theme').empty().append("<i class='fa-solid fa-lightbulb'></i>");
-
-			localStorage.theme = "light"
-			
-			$("link[href='assets/css/dark.css']").remove();
-			$('<link>').appendTo('head').attr({
-				type: 'text/css', 
-				rel: 'stylesheet',
-				href: 'assets/css/light.css'
-			});
-		}
-	})
-
-	
-	// Create the language manager
+	// ─── Language switcher ───────────────────────────────────
 	const langManager = new LanguageManager();
-	
-	// Alternates between the different available languages
+
 	$('#lan').click(function() {
-        const newLang = langManager.getNextLanguage();
-        langManager.setLanguage(newLang);
-    });
+		const newLang = langManager.getNextLanguage();
+		langManager.setLanguage(newLang);
+	});
 
-	// Show Home by default
-	// activateDiv('#homeContent');
-	// $('#home').addClass('active');
-	// $('#leftPanel').hide();
-
-	$('#section-content').hide();   // hide all sections initially
-	$('#homeContent').show();       // show home
+	// ─── Initial state: show Home ─────────────────────────────
+	$('#section-content').hide();
+	$('#homeContent').show();
 	$('#home').addClass('active');
 	$('#leftPanel').hide();
 });
 
-// Clears the active links
-function clearActiveLinks() {
-	$('#navbarList .nav-item .nav-link').each(function() {
-		$(this).removeClass('active');
+// ─── Helpers ─────────────────────────────────────────────────
+
+function loadTheme(theme) {
+	$("link[href='assets/css/light.css']").remove();
+	$("link[href='assets/css/dark.css']").remove();
+	$('<link>').appendTo('head').attr({
+		type: 'text/css',
+		rel: 'stylesheet',
+		href: `assets/css/${theme}.css`
 	});
 }
 
-// Clears the active divs
-// function clearActiveDivs() {
-// 	$('.container .content .active').each(function() {
-// 		$(this).removeClass('active');
-// 		$(this).hide();
-// 	});
-// }
-function clearActiveDivs() {
-	$('#aboutmeContent').hide().removeClass('active');
-	$('#academicContent').hide().removeClass('active');
-	$('#researchContent').hide().removeClass('active');
-	$('#blogContent').hide().removeClass('active');
+function clearActiveLinks() {
+	$('#navbarList .nav-item .nav-link').removeClass('active');
 }
 
-// Activates the link
-// function activateLink(e) {
-// 	$(e.target).addClass('active');
-	
-// 	// Hide left panel
-// 	if(e.target.id == "home"){
-// 		$('#leftPanel').hide();
-// 		// $('#section-content').hide();
-// 		$('#homeContent').show();
-// 	}
-// 	else {
-// 		$('#leftPanel').show();
-// 		// $('#section-content').show();
-// 		$('#homeContent').hide();
-// 	}
-// }
+function clearActiveDivs() {
+	$('#aboutmeContent, #academicContent, #researchContent, #blogContent')
+		.hide()
+		.removeClass('active');
+}
 
 function activateLink(e) {
 	$(e.target).addClass('active');
-
 	const id = e.target.id;
 
-	if (id === "home") {
+	if (id === 'home') {
 		$('#homeContent').show();
 		$('#section-content').hide();
 		return;
 	}
 
-	// show main section
 	$('#homeContent').hide();
 	$('#section-content').show();
 
-	// LEFT PANEL LOGIC
-	if (id === "aboutme") {
+	if (id === 'aboutme') {
 		$('#leftPanel').show();
-
-		// shrink main content
 		$('#mainPanel')
 			.removeClass('col-md-12')
 			.addClass('col-md-8 offset-md-1');
 	} else {
 		$('#leftPanel').hide();
-
-		// expand main content FULL WIDTH
 		$('#mainPanel')
 			.removeClass('col-md-8 offset-md-1')
 			.addClass('col-md-12');
 	}
 }
 
-// Activates the div
-// function activateDiv(divId) {
-// 	$(divId).addClass('active');
-// 	$(divId).show();
-
-// 	// Scrolls to the content
-// 	scrollToContent(divId);
-// }
 function activateDiv(divId) {
-	$('#section-content').show();   // make sure container is visible
+	if (divId !== '#homeContent') {
+		$('#section-content').show();
+	}
 	$(divId).addClass('active').show();
-
 	scrollToContent(divId);
 }
 
-// Scrolls to the content
 function scrollToContent(divId) {
 	if ($(window).width() < 751) {
-		$('html, body').animate({
-			scrollTop: $(divId).offset().top
-		}, 1);
+		$('html, body').animate({ scrollTop: $(divId).offset().top - 70 }, 250);
 	}
 }

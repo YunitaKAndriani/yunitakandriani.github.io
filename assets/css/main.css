@@ -1,501 +1,555 @@
-/* MOBILE's FIRST - Custom properties */
-/* This classes will be then modified for bigger screens */
-/* ===== GENERAL ===== */
+/* ===================================================
+   YUNITA K. ANDRIANI — Personal Page
+   main.css  |  Pinterest-Academic "Botanica" Aesthetic
+   Fonts: Cormorant Garamond (display) + DM Sans (body)
+   =================================================== */
+
+/* ===== BASE ===== */
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
 
 body {
-	font-family: 'Inter', sans-serif;
-	color: #2c2c2c;
-	background-color: #fafafa;
+	font-family: 'DM Sans', sans-serif;
+	font-size: 15px;
+	line-height: 1.75;
+	background-color: var(--bg);
+	color: var(--text);
+	transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Cormorant Garamond', serif;
 }
 
 a {
-	text-decoration-thickness: 1px;
-	color: inherit;
+	color: var(--accent);
+	text-decoration: none;
+	transition: color 0.2s, opacity 0.2s;
 }
 
 a:hover {
 	opacity: 0.7;
 }
 
-/* ===== HOME ===== */
+/* ===== NAVBAR ===== */
+
+#top-nav {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background-color: var(--nav-bg) !important;
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	border-bottom: 1px solid var(--border);
+	padding: 0.6rem 0;
+	transition: background-color 0.35s ease;
+}
+
+.nav-link {
+	font-family: 'DM Sans', sans-serif;
+	font-size: 0.78rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	font-weight: 500;
+	padding: 0.45rem 1.1rem !important;
+	position: relative;
+	transition: color 0.2s;
+}
+
+.nav-link::after {
+	content: '';
+	position: absolute;
+	bottom: 2px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 1px;
+	background-color: var(--accent);
+	transition: width 0.25s ease;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+	width: 50%;
+}
+
+/* ===== HERO ===== */
 
 #homeContent {
 	position: relative;
-	min-height: 80vh;
-
-	background: url('assets/documents/imgs/BG.png') center/cover no-repeat;
-
+	min-height: 88vh;
+	background: url('../documents/imgs/BG.png') center / cover no-repeat;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	margin-top: 40px;
-	margin-bottom: 40px;
+	overflow: hidden;
 }
 
-#homeContent .container {
-	color: white;
+#homeContent::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		160deg,
+		rgba(15, 10, 5, 0.52) 0%,
+		rgba(15, 10, 5, 0.30) 60%,
+		rgba(15, 10, 5, 0.45) 100%
+	);
+	z-index: 1;
+}
+
+.hero-inner {
+	position: relative;
+	z-index: 2;
 	text-align: center;
+	padding: 2rem 1.5rem;
+	animation: heroFadeUp 0.9s ease both;
 }
-
-/* ===== HERO TEXT ===== */
 
 .hero-name {
-	font-family: 'Playfair Display', serif;
-	font-size: 3rem;
-	font-weight: 600;
-	letter-spacing: 0.5px;
-	margin-bottom: 8px;
+	font-family: 'Cormorant Garamond', serif;
+	font-size: clamp(2.6rem, 6vw, 4.4rem);
+	font-weight: 500;
+	letter-spacing: 2px;
+	color: #fff !important;
+	text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+	margin-bottom: 10px;
+	line-height: 1.15;
 }
 
 .hero-name::after {
-	content: "";
+	content: '';
 	display: block;
-	width: 50px;
-	height: 2px;
-	margin: 10px auto 0;
-	background: rgba(255,255,255,0.7);
-	border-radius: 2px;
+	width: 48px;
+	height: 1px;
+	margin: 14px auto 0;
+	background: rgba(255, 255, 255, 0.55);
 }
 
 .hero-subtitle {
-	font-size: 1rem;
+	font-family: 'DM Sans', sans-serif;
+	font-size: 0.82rem;
 	font-weight: 300;
-	letter-spacing: 2px;
-	color: rgba(255,255,255,0.8);
+	letter-spacing: 3.5px;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.75);
+	margin-top: 8px;
+	margin-bottom: 28px;
 }
 
-/* ===== LAYOUT ===== */
+.btn-hero {
+	background: rgba(255, 255, 255, 0.14);
+	color: #fff;
+	border: 1px solid rgba(255, 255, 255, 0.45);
+	backdrop-filter: blur(6px);
+	padding: 0.55rem 1.8rem;
+	border-radius: 50px;
+	font-size: 0.78rem;
+	letter-spacing: 1.8px;
+	text-transform: uppercase;
+	font-weight: 500;
+	transition: all 0.25s ease;
+	display: inline-block;
+}
+
+.btn-hero:hover {
+	background: rgba(255, 255, 255, 0.26);
+	border-color: rgba(255, 255, 255, 0.8);
+	color: #fff;
+	transform: translateY(-2px);
+	opacity: 1;
+}
+
+.btn-hero-outline {
+	background: transparent;
+	color: rgba(255, 255, 255, 0.8);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	padding: 0.55rem 1.8rem;
+	border-radius: 50px;
+	font-size: 0.78rem;
+	letter-spacing: 1.8px;
+	text-transform: uppercase;
+	font-weight: 400;
+	transition: all 0.25s ease;
+	display: inline-block;
+}
+
+.btn-hero-outline:hover {
+	background: rgba(255, 255, 255, 0.1);
+	color: #fff;
+	border-color: rgba(255, 255, 255, 0.6);
+	transform: translateY(-2px);
+	opacity: 1;
+}
+
+/* ===== MAIN CONTENT AREA ===== */
 
 #main-content {
-	margin-top: 20px;
+	padding-top: 2.5rem;
+	padding-bottom: 5rem;
 }
 
-li > .active {
+.content-section {
+	animation: sectionFadeIn 0.5s ease both;
+}
+
+/* ===== LEFT PANEL (PROFILE CARD) ===== */
+
+#leftPanel {
+	padding: 0;
+}
+
+.profile-card {
+	background: var(--surface);
+	border-radius: 18px;
+	padding: 24px 22px;
+	box-shadow: 0 2px 28px var(--shadow);
+	border: 1px solid var(--border);
+	position: sticky;
+	top: 74px;
+	height: fit-content;
+}
+
+.profilepicture {
+	width: 100%;
+	max-height: 250px;
+	object-fit: cover;
+	border-radius: 12px;
+	border: 2px solid var(--border);
+	display: block;
+}
+
+.profile-name {
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 1.3rem;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	color: var(--heading) !important;
+	margin-top: 14px;
+}
+
+.profile-pronoun {
+	font-size: 0.82rem;
+	letter-spacing: 1px;
+}
+
+.contact-divider {
+	height: 1px;
+	background: var(--border);
+	margin: 4px 0 8px;
+}
+
+.contact-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.contact-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 0.88rem;
+}
+
+.contact-icon {
+	width: 20px;
+	text-align: center;
+	color: var(--accent);
+	font-size: 0.9rem;
+	flex-shrink: 0;
+}
+
+/* ===== SECTION HEADINGS ===== */
+
+.section-heading {
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 1.7rem;
 	font-weight: 500;
-}
-
-/* ===== TEXT STYLES ===== */
-
-.trnsf-thin {
-	font-weight: 300;
-}
-
-.trnsf-italic {
 	font-style: italic;
+	color: var(--heading) !important;
+	padding-bottom: 10px;
+	border-bottom: 1px solid var(--border);
+	letter-spacing: 0.3px;
+	line-height: 1.3;
 }
+
+.section-heading:first-child {
+	margin-top: 0;
+}
+
+/* Year labels */
+.year-label {
+	font-family: 'DM Sans', sans-serif;
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 2.5px;
+	text-transform: uppercase;
+	color: var(--accent);
+	margin-bottom: 2px;
+	margin-top: 0.75rem;
+}
+
+/* ===== PUBLICATION / ACADEMIC BLOCKS ===== */
+
+.pub-block {
+	background: var(--surface);
+	border-radius: 12px;
+	border-left: 3px solid var(--accent);
+	padding: 16px 20px;
+	margin-bottom: 10px;
+	box-shadow: 0 1px 12px var(--shadow);
+	transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.pub-block + .pub-block {
+	margin-top: 10px;
+}
+
+.pub-block:hover {
+	box-shadow: 0 5px 22px var(--shadow-hover);
+	transform: translateY(-2px);
+}
+
+.pub-title {
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 1.08rem;
+	font-weight: 600;
+	line-height: 1.5;
+	color: var(--heading);
+}
+
+/* Legacy class — aliases pub-title */
+.lucida-console, .lucida-console.h5 {
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 1.08rem;
+	font-weight: 600;
+	line-height: 1.5;
+	color: var(--heading);
+}
+
+.pub-authors {
+	font-size: 0.88rem;
+	color: var(--muted);
+	font-weight: 400;
+	line-height: 1.55;
+}
+
+.pub-authors .pub-author {
+	font-weight: 600;
+	color: var(--text);
+}
+
+.pub-links {
+	font-size: 0.84rem;
+	color: var(--muted);
+}
+
+.pub-links a {
+	color: var(--muted);
+	transition: color 0.2s;
+}
+
+.pub-links a:hover {
+	color: var(--accent);
+	opacity: 1;
+}
+
+.pub-force-margin-left {
+	margin-left: 14px;
+}
+
+/* ===== TEXT UTILITIES ===== */
+
+.trnsf-thin   { font-weight: 300; }
+.trnsf-italic { font-style: italic; }
 
 .justify {
 	text-align: justify;
 	text-justify: inter-word;
 }
 
-/* ===== PROFILE ===== */
-
-.profilepicture {
-	max-height: 280px;
-	min-width: 150px;
-	margin: auto;
-	border-radius: 12px;
+.research-intro {
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 1.08rem;
+	color: var(--muted);
+	border-left: 2px solid var(--accent-light);
+	padding-left: 14px;
 }
 
-/* ===== LISTS ===== */
+/* ===== INFO LIST (Profile, Honors) ===== */
 
-.abme-honors-bullet {
-	font-size: 15px;
-	margin-bottom: 6px;
+.info-list {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
 }
 
-/* ===== PUBLICATIONS ===== */
-
-.pub-block {
-	border-left: 2px solid #e0e0e0;
-	padding-left: 12px;
+.info-list li {
+	font-size: 0.92rem;
+	padding: 5px 0 5px 14px;
+	border-left: 2px solid var(--border);
+	margin-bottom: 8px;
+	line-height: 1.6;
+	transition: border-color 0.2s;
 }
 
-.pub-year-h2 {
-	font-size: 2.5em;
-	font-weight: 200;
+.info-list li:hover {
+	border-left-color: var(--accent-light);
 }
 
-.pub-authors {
-	font-weight: 400;
+/* ===== HOBBIES ===== */
+
+.hobby-row {
+	align-items: flex-start;
 }
 
-.pub-authors .pub-author {
-	font-weight: 500;
+.hobby-img {
+	border-radius: 10px;
+	box-shadow: 0 3px 16px var(--shadow);
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+	width: 100%;
+	object-fit: cover;
+	aspect-ratio: 1 / 1;
 }
 
-/* ===== BUTTON FLOAT ===== */
-
-.options-button {
-	position: fixed;
-	height: 45px;
-	width: 45px;
-	cursor: pointer;
-
-	border-radius: 50%;
-	bottom: 25px;
-	right: 25px;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	font-size: 1.1em;
-
-	background: white;
-	box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-#options-toggler:hover {
-	transform: scale(1.05);
+.hobby-img:hover {
+	transform: scale(1.03);
+	box-shadow: 0 6px 24px var(--shadow-hover);
 }
 
 /* ===== BLOG ===== */
 
-.clickable {
-	border-radius: 16px;
-	border: 1px solid #e0e0e0;
-	padding: 15px;
+.blog-link-row {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px 0;
+	border-bottom: 1px solid var(--border);
+	font-size: 0.95rem;
+}
+
+.blog-icon {
+	width: 22px;
+	text-align: center;
+	color: var(--accent);
+	font-size: 1.1rem;
+}
+
+/* ===== FLOATING BUTTONS ===== */
+
+.options-button {
+	position: fixed;
+	height: 42px;
+	width: 42px;
 	cursor: pointer;
-	transition: 0.3s;
-	background: white;
-}
-
-.clickable:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-}
-
-/* ===== MEDIA ===== */
-
-@media (min-width: 768px) {
-
-	.profilepicture {
-		margin-left: 0;
-	}
-
-	.abme-honors-bullet {
-		margin-left: 20px;
-	}
-}
-/* #mowatave {
-	color: #2bd284 !important;
-	text-decoration: underline;
-}
-
-.underline {
-	text-decoration: underline;
-}
-
-a {
-	text-decoration-thickness: 1px;
-}
-
-#hobbiesH4 {
-	text-align: center;
-}
-
-#hobbie1, #hobbie2, #hobbie3 {
-	text-align: center;
-	margin-top: 1em;
-}
-
-.abme-honors-bullet{
-	font-size: 16px;
-}
-
-/* GENERAL CSS */
-/* Hide left panel when Home is active */
-/* #homeContent.active ~ #leftPanel {
-    display: none;
-} */
-
-#homeContent {
-	position: relative;
-	min-height: 80vh;
-
-	background: url('assets/images/BG.png') no-repeat center center;
-	background-size: cover;
-
-	/* dark overlay effect */
+	border-radius: 50%;
+	bottom: 24px;
+	right: 24px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	margin-top:50px;
-	margin-bottom:50px;
+	font-size: 0.95rem;
+	background: var(--surface);
+	box-shadow: 0 4px 18px var(--shadow-hover);
+	border: 1px solid var(--border);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	z-index: 1200;
+	color: var(--text);
 }
 
-#main-content {
-	margin-top: 20px;
+.options-button:hover {
+	transform: scale(1.08);
 }
 
-li > .active {
-	font-weight: 500;
-}
-
-.trnsf-thin {
-	font-weight: 300;
-}
-
-.trnsf-italic {
-	font-style: italic;
-}
-
-.justify {
-	text-align: justify;
-  	text-justify: inter-word;
-}
-
-.lucida-console {
-	font-family: 'Lucida Console', monospace;
-}
-
-/* NICOLAS MESEGUER CONTACT INFO - Related*/
-.profilepicture {
-	max-height: 300px;
-	min-width: 150px;
-	min-height: 150px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.fseneca {
-	max-width: 50%; 
-	height: auto;
-}
-
-.fseneca:hover {
-	transform: scale(1.05,1.05);
-}
-
-/* PUBLICATIONS - Related */
-.pub-block {
-	border-left: 2px #D9DDDC solid;
-	padding-left: 15px;
-}
-
-.pub-year-h2 {
-	font-size: 3.2em;
-	font-weight: 100;
-}
-
-.pub-authors {
-	font-weight: 400;
-}
-
-.pub-authors .pub-author {
-	font-weight: 500;
-}
-
-.pub-congress {
-	font-weight: 100;
-}
-
-.pub-force-margin-left {
-	margin-left: 10px !important;
-}
-
-/* ACADEMIC - Related */
-.academic-year-h2, .student-h2 {
-	font-size: 3.2em;
-	font-weight: 100;
-}
-
-.academic-block, .student-block {
-	padding-left: 15px;
-}
-
-.academic-rol {
-	font-weight: 400;
-}
-
-.academic-year {
-	font-weight: 100;
-}
-
-.student-mark {
-	font-weight: 400;
-	font-size: 1.1em;
-}
-
-.student-period {
-	font-weight: 100;
-}
-
-/* OPTION BUTTON */
-.options-button {
-    position: fixed;
-	
-    height: 50px;
-    width: 50px;
-	cursor: pointer;
-
-    border-radius: 100%;
-	
-	bottom: 25px;
-	right: 25px;
-
-	display: inline-block;
-
-	font-size: 1.2em;
-	vertical-align: middle;
-	text-align: center;
-
-	padding-top: .35em;
-}
-
-.options-button i, img {
-	margin: auto;
-	z-index: -999;
-}
-
-#options-toggler {
-	transition: .2s;
-}
-
-#options-toggler:hover {
-	transform: scale(1.09,1.09);
-}
+#options-toggler { transition: transform 0.25s ease; }
 
 #theme {
-	height: 40px;
-    width: 40px;
-
-	bottom: 85px !important;
-	right: 30px !important;
-
-	font-size: 1em;
-
-	-webkit-transition: background-color .5s; /* For Safari 3.0 to 6.0 */
-    transition: background-color .5s; /* For modern browsers */
+	bottom: 76px;
+	right: 24px;
 }
 
 #lan {
-	height: 40px;
-    width: 40px;
-
-	bottom: 130px;
-	right: 30px;
-
-	font-size: 1em;
-
-	-webkit-transition: background-color .5s; /* For Safari 3.0 to 6.0 */
-    transition: background-color .5s; /* For modern browsers */
+	bottom: 128px;
+	right: 24px;
 }
 
 .lang-flag {
-	height: 15px;
-    width: 22.5px;
-	vertical-align:	0px;
+	height: 14px;
+	width: 21px;
 }
 
-/* BLOG - Related */
-.blog-info {
-	font-weight: 100;
-	width: 100%;
-	clear: both;
-	display: block;
-}
-
-.blog-short {
-	font-weight: 400;
-	font-size: 17px;
-}
-
-.blog-tags {
-	text-align: right;
-}
-
-.blog-tags > .tag {
-	border-radius: 100px;
-	padding: 4px;
-	font-size: 12px;
-	font-weight: 600;
-	box-shadow: 0px 3px 10px rgba(0,0,0,0.4);
-	color: white;
-}
-
-.blog-tags > .t-purple {
-	background-color: rgb(137, 70, 255, 0.8);
-}
-
-.blog-tags > .t-lime {
-	background-color: rgba(118, 185, 0, 0.8);
-}
-
-.blog-tags > .t-sky {
-	background-color: rgba(37, 197, 223, 0.8);
-}
+/* ===== CLICKABLE CARDS (blog etc.) ===== */
 
 .clickable {
-	border-radius: 20px;
-	border: 2px #D9DDDC solid;
-	padding: 15px;
+	border-radius: 14px;
+	border: 1px solid var(--border);
+	padding: 16px;
 	cursor: pointer;
-	transition: .3s;
-	box-shadow: 0px 3px 50px rgba(0,0,0,0.2);
+	transition: all 0.25s ease;
+	background: var(--surface);
 }
 
 .clickable:hover {
-	box-shadow: 0px 3px 50px rgba(0,0,0,0.3);
-	transform: scale(1.03,1.03);
+	transform: translateY(-4px);
+	box-shadow: 0 10px 30px var(--shadow-hover);
 }
 
-/* MEDIA QUERIES */
-/* BIGGER SCREENS */
-@media (min-width: 768px) {
+/* ===== QUOTE TEXT ===== */
 
-	#hobbiesH4 {
-		text-align: left;
-	}
-
-	#hobbie1, #hobbie2, #hobbie3 {
-		text-align: left;
-		margin-top: 0;
-	}
-
-	.profilepicture {
-		margin-left: 0%;
-		margin-right: 0%;
-	}
-	
-	.abme-honors-bullet{
-		margin-left: 40px;
-	}
-} */
-
-#homeContent::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background: rgba(0,0,0,0.3);
-}
-
-#homeContent .container {
-	position: relative;
-	z-index: 2;
-}
-
-/* #homeContent::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(249, 153, 153, 0.2); /* adjust darkness */
-	/* backdrop-filter: blur(3px);
-	z-index: 1;
-} */
 .quote-text {
+	font-family: 'Cormorant Garamond', serif;
 	font-size: 1.05rem;
-	line-height: 1.6;
+	line-height: 1.7;
+	border-left: 2px solid var(--accent-light);
+	padding-left: 14px;
+	color: var(--muted);
+	font-style: italic;
+}
 
-	border-left: 2px solid rgba(0,0,0,0.2);
-	padding-left: 12px;
+/* ===== ANIMATIONS ===== */
 
-	color: #555;
+@keyframes heroFadeUp {
+	from { opacity: 0; transform: translateY(20px); }
+	to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes sectionFadeIn {
+	from { opacity: 0; transform: translateY(10px); }
+	to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 767px) {
+	.profile-card {
+		position: static;
+		margin-bottom: 2rem;
+	}
+
+	.hero-name {
+		font-size: 2.4rem;
+	}
+
+	.hero-subtitle {
+		letter-spacing: 2px;
+	}
+
+	.hobby-row {
+		flex-direction: column;
+	}
+
+	.hobby-img {
+		max-height: 180px;
+		aspect-ratio: 16 / 9;
+		margin-bottom: 12px;
+	}
+}
+
+@media (min-width: 768px) {
+	.info-list li {
+		margin-left: 20px;
+	}
 }

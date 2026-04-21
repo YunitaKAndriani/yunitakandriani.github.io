@@ -1,73 +1,83 @@
-:root {
-	--t-color: #000;
+/* ===================================================
+   light.css  |  Warm Parchment — Light Theme
+   =================================================== */
 
-	--bg-color: #fff;
+   :root {
+	/* Palette */
+	--bg:           #F7F3EC;
+	--surface:      #FFFFFF;
+	--border:       #E2D5C3;
+	--accent:       #8C5E42;
+	--accent-light: #BF8A68;
+	--text:         #2E2218;
+	--muted:        #7C6E62;
+	--heading:      #1E160A;
+	--nav-bg:       rgba(247, 243, 236, 0.93);
+	--shadow:       rgba(46, 34, 24, 0.06);
+	--shadow-hover: rgba(46, 34, 24, 0.13);
 }
 
 body {
-	background-color: var(--bg-color);
-	color: var(--t-color);
+	background-color: var(--bg);
+	color: var(--text);
 }
 
-h1, h2, h3, h4, b {
-	color: var(--t-color) !important;
+h1, h2, h3, h4, b, strong {
+	color: var(--heading);
 }
 
+/* Navbar */
 #top-nav {
-	background-color:rgb(248, 249, 250) !important;
+	background-color: var(--nav-bg) !important;
 }
 
 .nav-link {
-	color: rgba(0, 0, 0, 0.9) !important;
+	color: rgba(46, 34, 24, 0.75) !important;
 }
 
-.nav-link:hover{
-	color: rgba(0, 0, 0, 0.7) !important;
+.nav-link:hover,
+.nav-link.active {
+	color: var(--accent) !important;
 }
 
-.t-secondary { 
-	color: rgb(108,117,125);
+/* Text helpers */
+.t-secondary {
+	color: var(--muted);
 }
 
+/* Links */
 .link-dark {
-	color: #212529 !important;
+	color: var(--text) !important;
 }
 
 .link-dark:hover {
-	color: #1c1e20 !important;
+	color: var(--accent) !important;
+	opacity: 1;
 }
 
-/* OPTION BUTTON */
+/* Option buttons */
 .options-button {
-	background-color: var(--bg-color);
-	border: 1px solid #000;
+	background-color: var(--surface);
+	border-color: var(--border);
+	color: var(--text);
 }
 
-#options-toggler {
-	box-shadow: 0px 3px 50px rgba(0,0,0,0.2);
+#theme:hover,
+#lan:hover {
+	background-color: #EDE5DB;
 }
 
-#options-toggler:hover {
-	box-shadow: 0px 3px 50px rgba(0,0,0,0.3);
-}
-
-#theme:hover, #lan:hover {
-	background-color: #d3d3d3;
-}
-
-/* BLOG - Related */
-
-.blog-short {
-	color: #717378;
-}
-
-/* TEACHING RELATED */
+/* Academic accent */
 .academic-name {
-	color: #22517d;
+	color: var(--accent);
 }
 
+/* Blog short text */
+.blog-short {
+	color: var(--muted);
 }
 
-.pub-block {
-	border-left: 2px #7d2222 solid;
+/* Navbar toggler */
+.navbar-toggler {
+	border-color: var(--border);
 }
