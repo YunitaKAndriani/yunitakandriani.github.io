@@ -25,12 +25,14 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
-
+		
 		<!-- Styles -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+		<link rel="stylesheet" href="assets/css/light.css" id="theme-stylesheet">
 		<link rel="stylesheet" href="assets/css/main.css">
 
 	</head>
@@ -218,7 +220,7 @@
 								<div class="container mt-3">
 									<div class="row hobby-row">
 										<div class="col-md-3 thumbnail">
-											<img class="hobby-img img-fluid" src="assets/images/hobby2.jpg" alt="Painting">
+											<div class="hobby-emoji-box" aria-label="Painting">🎨</div>
 										</div>
 										<div class="col-md-9" id="hobbie1">
 											<strong class="language"
@@ -233,7 +235,7 @@
 
 									<div class="row hobby-row mt-4">
 										<div class="col-md-3 thumbnail">
-											<img class="hobby-img img-fluid" src="assets/images/hobby1.jpg" alt="Photography">
+											<div class="hobby-emoji-box" aria-label="Photography">📷</div>
 										</div>
 										<div class="col-md-9" id="hobbie2">
 											<strong class="language"
@@ -334,16 +336,16 @@
 										<span class="pub-force-margin-left"><i class="fas fa-quote-left"></i> <a href="#" class="link-dark citation">BibTeX</a></span>
 									</div>
 									<div class="d-none">
-@article{SalimAdam:2025wlp,
-    author = "Salim Adam, Apriadi and Andriani, Yunita Kristanti and Dirgantara, Bayu",
-    title = "{Vacuum Structure of an Extended Standard Model with U(1)_D Symmetry}",
-    eprint = "2509.05534",
-    archivePrefix = "arXiv",
-    primaryClass = "hep-ph",
-    reportNumber = "OU-HET-1288",
-    month = "9",
-    year = "2025"
-}</div>
+										@article{SalimAdam:2025wlp,
+											author = "Salim Adam, Apriadi and Andriani, Yunita Kristanti and Dirgantara, Bayu",
+											title = "{Vacuum Structure of an Extended Standard Model with U(1)_D Symmetry}",
+											eprint = "2509.05534",
+											archivePrefix = "arXiv",
+											primaryClass = "hep-ph",
+											reportNumber = "OU-HET-1288",
+											month = "9",
+											year = "2025"
+										}</div>
 								</div>
 							</div>
 
@@ -360,19 +362,19 @@
 										<span class="pub-force-margin-left"><i class="fas fa-quote-left"></i> <a href="#" class="link-dark citation">BibTeX</a></span>
 									</div>
 									<div class="d-none">
-@article{SalimAdam:2023lbm,
-    author = "Salim Adam, Apriadi and Andriani, Yunita Kristanti and Latifah, Eny",
-    title = "{Investigating boson sector in an extended standard model with U(1)_D symmetry}",
-    eprint = "2309.06852",
-    archivePrefix = "arXiv",
-    primaryClass = "hep-ph",
-    doi = "10.1088/1402-4896/acfa49",
-    journal = "Phys. Scripta",
-    volume = "98",
-    number = "10",
-    pages = "105306",
-    year = "2023"
-}</div>
+										@article{SalimAdam:2023lbm,
+											author = "Salim Adam, Apriadi and Andriani, Yunita Kristanti and Latifah, Eny",
+											title = "{Investigating boson sector in an extended standard model with U(1)_D symmetry}",
+											eprint = "2309.06852",
+											archivePrefix = "arXiv",
+											primaryClass = "hep-ph",
+											doi = "10.1088/1402-4896/acfa49",
+											journal = "Phys. Scripta",
+											volume = "98",
+											number = "10",
+											pages = "105306",
+											year = "2023"
+										}</div>
 								</div>
 							</div>
 
@@ -416,6 +418,14 @@
 								data-jp=""
 								data-en="Grants"><em>Grants</em>
 							</h3>
+
+							<div class="row mt-3">
+								<div class="year-label">2023</div>
+								<div class="pub-block mt-2">
+									<div class="pub-title">State University of Malang's Research Funding Program</div>
+									<div class="pub-authors mt-1">Grant No. 5.4.1/UN32/KP/2023</div>
+								</div>
+							</div>
 
 						</div>
 					</div>

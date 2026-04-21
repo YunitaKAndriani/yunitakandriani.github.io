@@ -4,6 +4,24 @@
    Fonts: Cormorant Garamond (display) + DM Sans (body)
    =================================================== */
 
+/* ===== DEFAULT CSS VARIABLES (light theme fallback) =====
+   These ensure the page renders correctly on first load,
+   before light.css or dark.css is injected by JavaScript. */
+
+   :root {
+	--bg:           #F7F3EC;
+	--surface:      #FFFFFF;
+	--border:       #E2D5C3;
+	--accent:       #8C5E42;
+	--accent-light: #BF8A68;
+	--text:         #2E2218;
+	--muted:        #7C6E62;
+	--heading:      #1E160A;
+	--nav-bg:       rgba(247, 243, 236, 0.93);
+	--shadow:       rgba(46, 34, 24, 0.06);
+	--shadow-hover: rgba(46, 34, 24, 0.13);
+}
+
 /* ===== BASE ===== */
 
 *, *::before, *::after {
@@ -406,17 +424,25 @@ a:hover {
 	align-items: flex-start;
 }
 
-.hobby-img {
-	border-radius: 10px;
-	box-shadow: 0 3px 16px var(--shadow);
-	transition: transform 0.25s ease, box-shadow 0.25s ease;
+.hobby-emoji-box {
 	width: 100%;
-	object-fit: cover;
 	aspect-ratio: 1 / 1;
+	max-width: 110px;
+	border-radius: 16px;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	box-shadow: 0 3px 16px var(--shadow);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.8rem;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+	cursor: default;
+	user-select: none;
 }
 
-.hobby-img:hover {
-	transform: scale(1.03);
+.hobby-emoji-box:hover {
+	transform: scale(1.05);
 	box-shadow: 0 6px 24px var(--shadow-hover);
 }
 
@@ -541,9 +567,9 @@ a:hover {
 		flex-direction: column;
 	}
 
-	.hobby-img {
-		max-height: 180px;
-		aspect-ratio: 16 / 9;
+	.hobby-emoji-box {
+		max-width: 80px;
+		font-size: 2.2rem;
 		margin-bottom: 12px;
 	}
 }
