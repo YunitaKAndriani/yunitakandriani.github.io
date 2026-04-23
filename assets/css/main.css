@@ -118,6 +118,9 @@ a:hover {
 		rgba(15, 10, 5, 0.30) 60%,
 		rgba(15, 10, 5, 0.45) 100%
 	);
+	filter: blur(12px); 
+	transform: scale(1.1);
+	
 	z-index: 1;
 }
 
