@@ -8,7 +8,7 @@
    These ensure the page renders correctly on first load,
    before light.css or dark.css is injected by JavaScript. */
 
-   :root {
+:root {
 	--bg:           #F7F3EC;
 	--surface:      #FFFFFF;
 	--border:       #E2D5C3;
@@ -98,7 +98,10 @@ a:hover {
 #homeContent {
 	position: relative;
 	min-height: 88vh;
-	background: url('../documents/imgs/BG.png') center / cover no-repeat;
+	background-color: #2a1a0e; /* fallback while image loads */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -420,14 +423,22 @@ a:hover {
 
 /* ===== HOBBIES ===== */
 
-.hobby-row {
-	align-items: flex-start;
+.hobby-cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+.hobby-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
 }
 
 .hobby-emoji-box {
-	width: 100%;
-	aspect-ratio: 1 / 1;
-	max-width: 110px;
+	width: 90px;
+	height: 90px;
 	border-radius: 16px;
 	background: var(--surface);
 	border: 1px solid var(--border);
@@ -435,15 +446,23 @@ a:hover {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 2.8rem;
+	font-size: 2.6rem;
 	transition: transform 0.25s ease, box-shadow 0.25s ease;
 	cursor: default;
 	user-select: none;
 }
 
 .hobby-emoji-box:hover {
-	transform: scale(1.05);
+	transform: scale(1.07);
 	box-shadow: 0 6px 24px var(--shadow-hover);
+}
+
+.hobby-label {
+	font-size: 0.78rem;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+	color: var(--muted);
+	text-align: center;
 }
 
 /* ===== BLOG ===== */
@@ -568,9 +587,9 @@ a:hover {
 	}
 
 	.hobby-emoji-box {
-		max-width: 80px;
-		font-size: 2.2rem;
-		margin-bottom: 12px;
+		width: 76px;
+		height: 76px;
+		font-size: 2rem;
 	}
 }
 
