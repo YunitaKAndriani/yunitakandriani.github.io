@@ -195,18 +195,18 @@ function activateDiv(divId) {
 	scrollToContent(divId);
 }
 
-// function scrollToContent(divId) {
-// 	if ($(window).width() < 751) {
-// 		$('html, body').animate({ scrollTop: $(divId).offset().top - 70 }, 250);
-// 	}
-// }
-
 function scrollToContent(divId) {
 	if ($(window).width() < 751) {
-		// Option A: Use .scrollTop() for an instant jump
-		$(window).scrollTop($(divId).offset().top - 70);
-		
-		// OR Option B: Keep .animate but set time to 0
-		// $('html, body').animate({ scrollTop: $(divId).offset().top - 70 }, 0);
+		$('html, body').animate({ scrollTop: $(divId).offset().top - 70 }, 250);
 	}
 }
+
+// function scrollToContent(divId) {
+// 	if ($(window).width() < 751) {
+// 		// Option A: Use .scrollTop() for an instant jump
+// 		$(window).scrollTop($(divId).offset().top - 70);
+		
+// 		// OR Option B: Keep .animate but set time to 0
+// 		// $('html, body').animate({ scrollTop: $(divId).offset().top - 70 }, 0);
+// 	}
+// }
