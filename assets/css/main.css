@@ -9,17 +9,17 @@
    before light.css or dark.css is injected by JavaScript. */
 
    :root {
-    --bg:           #F7F9F7; /* Very soft off-white with a hint of green */
-    --surface:      #FFFFFF; /* Pure white for cards and surface elements */
-    --border:       #E2E8E2; /* Subtle light grey-green border */
-    --accent:       #A3B18A; /* Classic muted Sage Green */
-    --accent-light: #CAD2C5; /* Pale, airy mint-sage */
-    --text:         #4A574D; /* Soft dark forest green for readability */
-    --muted:        #8B9A8F; /* Desaturated green for secondary text */
-    --heading:      #354F52; /* Deep charcoal-green for strong contrast */
-    --nav-bg:       rgba(247, 249, 247, 0.85); /* Semi-transparent matching the BG */
-    --shadow:       rgba(163, 177, 138, 0.12); /* Subtle green-tinted shadow */
-    --shadow-hover: rgba(163, 177, 138, 0.25); /* More pronounced soft shadow */
+    --bg:           #F7F9F7;
+    --surface:      #FFFFFF; 
+    --border:       #E2E8E2; 
+    --accent:       #A3B18A; 
+    --accent-light: #CAD2C5;
+    --text:         #4A574D;
+    --muted:        #748979;
+    --heading:      #354F52; 
+    --nav-bg:       rgba(247, 249, 247, 0.85); 
+    --shadow:       rgba(163, 177, 138, 0.12); 
+    --shadow-hover: rgba(163, 177, 138, 0.25); 
 }
 
 /* ===== BASE ===== */
