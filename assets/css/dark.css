@@ -1,20 +1,20 @@
 /* ===================================================
-   dark.css  |  Warm Espresso — Dark Theme
+   dark.css  |  Dark Theme
    =================================================== */
 
    :root {
 	/* Palette */
-	--bg:           #1A1612;
-	--surface:      #231F1A;
-	--border:       #3A3028;
-	--accent:       #C4956A;
-	--accent-light: #DDB48E;
-	--text:         #EAE0D5;
-	--muted:        #9A8C82;
-	--heading:      #F5EDE4;
+	--bg:           #121a13;
+	--surface:      #1b231a;
+	--border:       #2e3a28;
+	--accent:       #8dc46a;
+	--accent-light: #a3dd8e;
+	--text:         #d5eada;
+	--muted:        #829a87;
+	--heading:      #e4f5e9;
 	--nav-bg:       rgba(26, 22, 18, 0.95);
 	--shadow:       rgba(0, 0, 0, 0.22);
-	--shadow-hover: rgba(0, 0, 0, 0.40);
+	--shadow-hover: rgba(0, 0, 0, 0.4);
 }
 
 body {

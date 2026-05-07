@@ -1,20 +1,19 @@
 /* ===================================================
-   light.css  |  Warm Parchment — Light Theme
+   light.css  |  Light Theme
    =================================================== */
 
    :root {
-	/* Palette */
-	--bg:           #F7F3EC;
-	--surface:      #FFFFFF;
-	--border:       #E2D5C3;
-	--accent:       #8C5E42;
-	--accent-light: #BF8A68;
-	--text:         #2E2218;
-	--muted:        #7C6E62;
-	--heading:      #1E160A;
-	--nav-bg:       rgba(247, 243, 236, 0.93);
-	--shadow:       rgba(46, 34, 24, 0.06);
-	--shadow-hover: rgba(46, 34, 24, 0.13);
+	--bg:           #ecf7ee;
+	--surface:      #ffffff;
+	--border:       #c3e2cd;
+	--accent:       #428c57;
+	--accent-light: #68bf88;
+	--text:         #182e1f;
+	--muted:        #627c6c;
+	--heading:      #0a1e10;
+	--nav-bg:       rgba(236, 247, 239, 0.93);
+	--shadow:       rgba(24, 46, 36, 0.06);
+	--shadow-hover: rgba(24, 46, 36, 0.13);
 }
  
 
