@@ -3,18 +3,20 @@
    =================================================== */
 
    :root {
-    --bg:           #F7F9F7;
-    --surface:      #FFFFFF; 
-    --border:       #E2E8E2; 
-    --accent:       #A3B18A; 
-    --accent-light: #CAD2C5;
-    --text:         #4A574D;
-    --muted:        #748979;
-    --heading:      #354F52; 
-    --nav-bg:       rgba(247, 249, 247, 0.85); 
-    --shadow:       rgba(163, 177, 138, 0.12); 
-    --shadow-hover: rgba(163, 177, 138, 0.25); 
+	/* Palette */
+	--bg:           #F7F3EC;
+	--surface:      #FFFFFF;
+	--border:       #E2D5C3;
+	--accent:       #8C5E42;
+	--accent-light: #BF8A68;
+	--text:         #2E2218;
+	--muted:        #7C6E62;
+	--heading:      #1E160A;
+	--nav-bg:       rgba(247, 243, 236, 0.93);
+	--shadow:       rgba(46, 34, 24, 0.06);
+	--shadow-hover: rgba(46, 34, 24, 0.13);
 }
+ 
 
 body {
 	background-color: var(--bg);
