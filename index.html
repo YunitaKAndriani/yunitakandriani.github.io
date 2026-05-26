@@ -1,358 +1,794 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
-	<head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yunita Kristanti Andriani — Particle Physics, University of Osaka">
+  <meta name="author" content="Yunita K. Andriani">
+  <title>Yunita K. Andriani</title>
 
-		<!-- Meta tags -->
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-		<meta name="description" content="Yunita Kristanti Andriani's website, biography, academic, previous experience, and published papers."/>
-		<meta name="keywords" content="yunita kristanti andriani, yunita k andriani, yunita andriani, yunita kristanti"/>
-		
-		<meta name="author" content="Yunita K. Andriani" />
-		<meta name="copyright" content="Work protected by copyright; no distribution without permission." />
-		
-		<!-- Title + Icon -->
-		<title>Yunita Kristanti Andriani</title>
-		<link rel="icon" type="image/x-icon" href="assets/documents/imgs/NicolasMeseguer.ico">
+  <style>
+    /* ── THEME TOKENS ── */
+    :root,
+    [data-theme="light"] {
+      --bg: #f5f3ef;
+      --surface: #ffffff;
+      --border: #ddd8d0;
+      --border-light: #ebe7e0;
+      --accent: #3a6b4a;
+      --accent-dim: #5a8a6a;
+      --text: #1c1c1a;
+      --muted: #6b6b66;
+      --faint: #999990;
+      --heading: #0f0f0e;
+      --nav-bg: rgba(245, 243, 239, 0.92);
+      --shadow: 0 1px 12px rgba(0,0,0,0.07);
+      --shadow-md: 0 4px 24px rgba(0,0,0,0.10);
+    }
 
-		<!-- Improve SEO -->
-		<meta name="robots" content="index,follow" />
+    [data-theme="dark"] {
+      --bg: #111210;
+      --surface: #1a1c18;
+      --border: #2c302a;
+      --border-light: #232620;
+      --accent: #7bbf8e;
+      --accent-dim: #5a9e70;
+      --text: #d8d5ce;
+      --muted: #8a8a82;
+      --faint: #606058;
+      --heading: #edeae3;
+      --nav-bg: rgba(17, 18, 16, 0.94);
+      --shadow: 0 1px 12px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 24px rgba(0,0,0,0.4);
+    }
 
-		<!-- Google Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
-		
-		<!-- Styles -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-		<link rel="stylesheet" href="assets/css/light.css" id="theme-stylesheet">
-		<link rel="stylesheet" href="assets/css/main.css">
+    html { scroll-behavior: smooth; }
 
-	</head>
+    body {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+      -webkit-font-smoothing: antialiased;
+    }
 
-	<!-- Google tag (gtag.js) & Google Analytics -->
-	<script>
-        fetch('./assets/js/config.json')
-            .then(response => response.json())
-            .then(config => {
-                const scriptTag = document.createElement('script');
-                scriptTag.async = true;
-                scriptTag.src = `https://www.googletagmanager.com/gtag/js?id=${config.googleAnalyticsMeasurementId}`;
-                document.head.appendChild(scriptTag);
+    h1, h2, h3, h4 {
+      font-family: 'EB Garamond', serif;
+      color: var(--heading);
+    }
 
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', config.googleAnalyticsMeasurementId);
-            })
-            .catch(error => console.error('Error loading the configuration:', error));
-    </script>
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.18s; }
+    a:hover { opacity: 0.7; }
 
-	<body>
+    /* ── NAVBAR ── */
+    #top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0;
+      transition: background 0.3s;
+    }
 
-		<!-- Floating action buttons -->
-		<div class="options-button" id="options-toggler"><i class="fa-solid fa-sliders"></i></div>
-		<div class="options-button" id="theme"><i class="fa-solid fa-moon"></i></div>
-		<div class="options-button" id="lan"><img class="lang-flag" src="https://flagcdn.com/w20/us.png" alt="Selected language"></div>
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
 
-		<!-- Navbar -->
-		<nav id="top-nav" class="navbar navbar-expand-md flex-md-nowrap flex-wrap">
-			<div class="container justify-content-center">
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar3">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="navbar-collapse collapse flex-grow-1 justify-content-center" id="collapsingNavbar3">
-					<ul class="navbar-nav mx-auto language" id="navbarList">
-						<li class="nav-item">
-							<a class="nav-link" id="nav-home" href="#homeContent"
-								data-jp="ホーム"
-								data-en="Home">
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="nav-aboutme" href="#aboutmeContent"
-								data-jp="プロフィール"
-								data-en="About Me">
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="nav-academic" href="#academicContent"
-								data-jp="学歴"
-								data-en="Academic">
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="nav-research" href="#researchContent"
-								data-jp="研究"
-								data-en="Research">
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="nav-blog" href="#blogContent"
-								data-jp="ブログ"
-								data-en="Personal Blog">
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+    .nav-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--heading);
+      letter-spacing: 0.3px;
+      flex-shrink: 0;
+    }
 
-		<!-- ===== HERO ===== -->
-		<div id="homeContent" style="background-image: url('assets/images/BG.png');">
-			<div class="hero-inner">
-				<div class="hero-text">
-					<h1 class="hero-name">Yunita K. Andriani</h1>
-					<p class="hero-subtitle language"
-						data-jp="私のホームページへようこそ。"
-						data-en="Welcome to my personal page.">Welcome to my personal page.</p>
-					<div class="hero-btns mt-4">
-						<a href="#aboutmeContent" class="btn btn-hero me-2">About Me</a>
-						<a href="assets/documents/2026CV.pdf" target="_blank" class="btn btn-hero me-2">📄 Full CV</a>
-					</div>
-				</div>
-			</div>
-		</div>
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      list-style: none;
+    }
 
-		<!-- ===== MAIN CONTENT ===== -->
-		<div class="container" id="main-content">
-			<div class="row" id="section-content">
+    .nav-links a {
+      font-size: 0.72rem;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.4rem 0.85rem;
+      display: block;
+      position: relative;
+      transition: color 0.18s;
+    }
 
-				<!-- Left Panel: Profile & Contact -->
-				<div id="leftPanel" class="col-md-3 language">
-					<div class="profile-card">
-						<div class="row mb-3">
-							<div class="col">
-								<img src="assets/images/profilephoto1.jpg" class="profilepicture img-fluid" alt="Profile picture">
-							</div>
-						</div>
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.22s;
+    }
 
-						<h3 class="profile-name mb-1"
-							data-jp="ユニタ・アンドリアニ"
-							data-en="Yunita ANDRIANI">Yunita ANDRIANI</h3>
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+      opacity: 1;
+    }
 
-						<p class="profile-pronoun mb-4">
-							<span class="t-secondary" data-jp="彼女" data-en="She/Her">She/Her</span>
-						</p>
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 60%; }
 
-						<div class="contact-divider"></div>
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-						<div class="contact-list mt-3">
-							<div class="contact-row">
-								<span class="contact-icon"><i class="fa-solid fa-location-dot"></i></span>
-								<span>Osaka, Japan</span>
-							</div>
-							<div class="contact-row">
-								<span class="contact-icon"><i class="fa-regular fa-envelope"></i></span>
-								<a href="mailto:ykandriani2871@gmail.com" class="link-dark">Personal</a>
-							</div>
-							<div class="contact-row">
-								<span class="contact-icon"><i class="fa-regular fa-envelope"></i></span>
-								<a href="mailto:andriani@het.phys.sci.osaka-u.ac.jp" class="link-dark">Academic <em>(preferred)</em></a>
-							</div>
-							<div class="contact-row">
-								<span class="contact-icon"><i class="fa-brands fa-github"></i></span>
-								<a href="https://github.com/YunitaKAndriani" class="link-dark" target="_blank">GitHub</a>
-							</div>
-							<div class="contact-row">
-								<span class="contact-icon"><i class="fa-brands fa-google-scholar"></i></span>
-								<a href="https://scholar.google.com/citations?user=WnFhZmYAAAAJ" class="link-dark" target="_blank">Google Scholar</a>
-							</div>
-							<div class="contact-row">
-								<span class="contact-icon"><i class="fa-solid fa-atom"></i></span>
-								<a href="https://inspirehep.net/authors/2736490" class="link-dark" target="_blank">InspireHEP</a>
-							</div>
-							<div class="contact-row">
-								<span class="contact-icon"><i class="fa-brands fa-linkedin"></i></span>
-								<a href="https://linkedin.com/in/yunita-kristanti-andriani-b0418a217" class="link-dark" target="_blank">LinkedIn</a>
-							</div>
-							<div class="contact-row">
-								<span class="contact-icon"><i class="fa-brands fa-orcid"></i></span>
-								<a href="https://orcid.org/0000-0002-8980-2274" class="link-dark" target="_blank">ORCiD</a>
-							</div>
-						</div>
-					</div>
-				</div>
+    .btn-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      transition: color 0.18s, border-color 0.18s, background 0.18s;
+    }
 
-				<!-- Main Panel: all sections stacked -->
-				<div id="mainPanel" class="col-md-8 offset-md-1">
+    .btn-icon:hover {
+      color: var(--accent);
+      border-color: var(--accent-dim);
+      background: var(--surface);
+    }
 
-					<!-- ===== ABOUT ME ===== -->
-					<section class="content-section" id="aboutmeContent">
-						<div class="row language">
+    .lang-flag { height: 12px; width: 18px; display: block; }
 
-							<h3 id="profile" class="section-heading mt-4"
-								data-jp="プロフィール"
-								data-en="Profile"><em>About Me</em>
-							</h3>
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 8px;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
 
-							<p class="mt-2 justify">
-								<em><span
-									data-jp='大阪大学大学院素粒子理論研究室所属、修士課程2年生。<a href="https://www-het.phys.sci.osaka-u.ac.jp/" class="link-dark" target="_blank">素粒子理論研究室</a>の一員です。'
-									data-en='I am a second-year master&#39;s student at The University of Osaka, a member of the <a href="https://www-het.phys.sci.osaka-u.ac.jp/" class="link-dark" target="_blank">Particle Physics Theory Group</a>.'>
-									I am a second-year master's student at The University of Osaka, a member of the
-									<a href="https://www-het.phys.sci.osaka-u.ac.jp/" class="link-dark" target="_blank"><strong>Particle Physics Theory Group</strong></a>.
-								</span></em>
-							</p>
+    @media (max-width: 700px) {
+      .nav-links { display: none; flex-direction: column; gap: 0; }
+      .nav-links.open {
+        display: flex;
+        position: absolute;
+        top: 52px;
+        left: 0; right: 0;
+        background: var(--nav-bg);
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: blur(16px);
+        padding: 0.5rem 0;
+      }
+      .nav-links.open a { padding: 0.6rem 1.5rem; }
+      .nav-toggle { display: flex; align-items: center; }
+      .nav-name { font-size: 0.95rem; }
+    }
 
-							<ul class="info-list mt-2">
-								<li><strong>Full Name:</strong> Yunita Kristanti ANDRIANI</li>
-								<li><strong>Nationality:</strong> Indonesian</li>
-								<li><strong>Place/Date of Birth:</strong> Malang, Indonesia &ndash; 28 July 2001</li>
-								<li><strong>Languages:</strong> Indonesian <em>(native)</em>, Javanese <em>(native)</em>, English, Japanese <em>(learning)</em>, Korean <em>(learning)</em></li>
-								<li><strong>Hobbies:</strong> Painting, Taking pics, Sports</li>
-							</ul>
+    /* ── HERO ── */
+    #homeContent {
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('assets/images/BG.png');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-							<!-- <h3 id="hobbiesH4" class="section-heading mt-4"
-								data-jp="趣味"
-								data-en="Hobbies"><em>Hobbies</em>
-							</h3> -->
+    #homeContent::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(10,10,8,0.58) 0%, rgba(10,10,8,0.36) 60%, rgba(10,10,8,0.52) 100%);
+    }
 
-							<!-- <div class="hobby-cards mt-3">
-								<div class="hobby-card">
-									<div class="hobby-emoji-box" aria-label="Painting">🎨</div>
-									<span class="hobby-label language" data-jp="絵を書きこと" data-en="Painting"></span>
-								</div>
-								<div class="hobby-card">
-									<div class="hobby-emoji-box" aria-label="Photography">📷</div>
-									<span class="hobby-label language" data-jp="写真術" data-en="Taking pictures (not photography)"></span>
-								</div>
-								<div class="hobby-card">
-									<div class="hobby-emoji-box" aria-label="Sports">🏃‍♀️</div>
-									<span class="hobby-label language" data-jp="スポーツ" data-en="Sports"></span>
-								</div>
-							</div> -->
-						</div>
-					</section>
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      animation: fadeUp 0.8s ease both;
+    }
 
-					<!-- ===== ACADEMIC ===== -->
-					<section id="academicContent" class="content-section">
+    .hero-name {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(2.8rem, 7vw, 4.8rem);
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
 
-						<h3 class="section-heading"
-							data-jp="学歴"
-							data-en="Education"><em>Education &amp; Qualifications</em>
-						</h3>
+    .hero-rule {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.45);
+      margin: 14px auto;
+    }
 
-						<div class="mt-3">
-							<div class="year-label">2025 &ndash; present</div>
-							<div class="pub-block mt-2">
-								<div class="pub-title">M.Sc in Physics</div>
-								<div class="pub-authors mt-1"
-									data-jp="大阪大学、大阪、日本"
-									data-en="The University of Osaka, Osaka, Japan">The University of Osaka, Osaka, Japan</div>
-								<div class="pub-authors mt-1"><em>Particle Physics Theory Group, Dept. of Physics</em></div>
-							</div>
-						</div>
+    .hero-sub {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.76rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 28px;
+    }
 
-						<div class="mt-3">
-							<div class="year-label">12 June 2024 &ndash; 25 June 2024</div>
-							<div class="pub-block mt-2">
-								<div class="pub-authors"
-									data-jp="AEPSHEP2024, タイ"
-									data-en="AEPSHEP2024 (Asia-Europe-Pacific School of High-Energy Physics), Nakhon Pathom, Thailand">AEPSHEP2024 (Asia-Europe-Pacific School of High-Energy Physics), Nakhon Pathom, Thailand</div>
-							</div>
-						</div>
+    .hero-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
-						<div class="mt-3">
-							<div class="year-label">July 2019 &ndash; May 2023</div>
-							<div class="pub-block mt-2">
-								<div class="pub-title">B.Sc in Physics</div>
-								<div class="pub-authors mt-1"
-									data-jp="マラン大学, マラン、インドネシア"
-									data-en="State University of Malang, Malang City, Indonesia">State University of Malang, Malang City, Indonesia</div>
-								<div class="pub-authors mt-1"><em>Theoretical and Computational Physics Group, Dept. of Physics</em></div>
-								<div class="pub-authors mt-2">
-									<span data-jp="論文:" data-en="Thesis:">Thesis:</span>
-									<em>
-										<a href="https://repository.um.ac.id/291551/" class="link-dark" target="_blank">
-										The Mass of Scalar Higgs and Gauge Boson in an Extended Standard Model with Additional U(1)_D Symmetry
-										</a>
-									</em>
-								</div>
-							</div>
-						</div>
+    .btn-ghost {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.38);
+      padding: 0.5rem 1.6rem;
+      border-radius: 40px;
+      font-size: 0.73rem;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      font-family: 'Instrument Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.22s;
+      display: inline-block;
+      backdrop-filter: blur(6px);
+    }
 
-						<h3 class="section-heading mt-5"
-							data-jp="受賞歴"
-							data-en="Honors and Awards"><em>Honors and Awards</em>
-						</h3>
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.22);
+      color: #fff;
+      border-color: rgba(255,255,255,0.7);
+      opacity: 1;
+      transform: translateY(-2px);
+    }
 
-						<div class="mt-3">
-							<div class="year-label">April 2025 &ndash; present</div>
-							<div class="pub-block mt-2">
-								<div class="pub-title">MEXT Scholarship</div>
-								<div class="pub-authors mt-1"
-									data-jp="修士課程"
-									data-en="for a master course">for a master course</div>
-							</div>
-						</div>
+    /* ── MAIN LAYOUT ── */
+    #page-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem 6rem;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0 3.5rem;
+      align-items: start;
+    }
 
-						<h3 class="section-heading mt-5"
-							data-jp=""
-							data-en="Experiences"><em>Experiences: Professional Training &amp; Working</em>
-						</h3>
+    /* ── SIDEBAR ── */
+    #sidebar {
+      padding-top: 2.8rem;
+      position: sticky;
+      top: 68px;
+    }
 
-						<ul class="info-list mt-3 language">
-							<li>
-								<strong><span data-jp="2023年5月 &ndash; 2023年12月" data-en="May 2023 – Dec 2023"></span></strong>,
-								<span data-jp="リサーチアシスタント" data-en="Research Assistant"></span>
-								&mdash; <span data-en="Research Center for Quantum Physics, National Research and Innovation Agency (BRIN)" data-jp="インドネシア国立研究イノベーション庁（BRIN）量子物理学研究センター"></span>
-							</li>
-							<li>
-								<strong><span data-jp="2022年9月 &ndash; 2023年2月" data-en="Sep 2022 – Feb 2023"></span></strong>,
-								<span data-jp="研究実習" data-en="Research Internship"></span>
-								&mdash; <span data-en="Research Center for Quantum Physics, National Research and Innovation Agency (BRIN)" data-jp="インドネシア国立研究イノベーション庁（BRIN）量子物理学研究センター"></span>
-							</li>
-							<li>
-								<strong><span data-jp="2021年8月 &ndash; 2022年1月" data-en="August 2021 – January 2022"></span></strong>,
-								<span data-jp="実習" data-en="Internship"></span>
-								&mdash; <span data-en="PT Microsoft Indonesia" data-jp="インドネシア・マイクロソフト"></span>
-							</li>
-						</ul>
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: block;
+    }
 
+    .sidebar-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--heading);
+      margin-top: 14px;
+      line-height: 1.25;
+    }
 
+    .sidebar-pronoun {
+      font-size: 0.78rem;
+      color: var(--faint);
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+      margin-bottom: 14px;
+    }
 
-					</section>
+    .sidebar-rule {
+      height: 1px;
+      background: var(--border);
+      margin: 0 0 14px;
+    }
 
-					<!-- ===== RESEARCH ===== -->
-					<section id="researchContent" class="content-section">
-						<h3 class="section-heading mt-5"
-							data-jp="研究"
-							data-en="Research"><em>Research</em>
-						</h3>
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
 
-						<p class="mt-2 justify">
-								<em><span data-jp="標準模型を超える物理（BSM）、とりわけヒッグス物理に強い関心を持っています。"
-										data-en="I am interested in Beyond the Standard Model (BSM), particularly in Higgs Physics.">
-									I am interested in Beyond the Standard Model (BSM), particularly in Higgs Physics.</span>
-								</em>
-						</p>
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 0.82rem;
+    }
 
-						<h3 class="section-heading mt-4"
-							data-jp="論文"
-							data-en="Publications"><em>Publications</em>
-						</h3>
+    .contact-icon {
+      width: 16px;
+      text-align: center;
+      color: var(--accent-dim);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
 
-						<div class="mt-3">
-							<div class="year-label">2025</div>
-							<div class="pub-block mt-2">
-								<div class="pub-title">&ldquo;Vacuum Structure of an Extended Standard Model with U(1)_D Symmetry&rdquo;</div>
-								<div class="pub-authors mt-2">
-									Apriadi Salim Adam, <span class="pub-author">Yunita Kristanti Andriani</span>, Bayu Dirgantara
-								</div>
-								<div class="pub-links mt-2">
-									<span><i class="fa fa-arrow-up-right-from-square"></i> <a href="https://arxiv.org/abs/2509.05534" target="_blank" class="link-dark">Paper</a></span>
-									<span class="pub-force-margin-left"><i class="fas fa-quote-left"></i> <a href="#" class="link-dark citation">BibTeX</a></span>
-								</div>
-								<div class="d-none">
-@article{SalimAdam:2025wlp,
+    .contact-row a {
+      color: var(--muted);
+      transition: color 0.18s;
+    }
+
+    .contact-row a:hover {
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    /* ── MAIN CONTENT ── */
+    #main-content {
+      padding-top: 2.8rem;
+      min-width: 0;
+    }
+
+    /* ── SECTION ── */
+    .section { margin-bottom: 3.5rem; }
+
+    .section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--heading);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.4rem;
+      line-height: 1.3;
+    }
+
+    /* ── ABOUT BIO ── */
+    .bio-text {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: var(--muted);
+      font-style: italic;
+      border-left: 2px solid var(--border-light);
+      padding-left: 14px;
+      margin-bottom: 1.2rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 16px;
+      font-size: 0.87rem;
+      color: var(--text);
+    }
+
+    .info-label {
+      color: var(--faint);
+      font-size: 0.78rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding-top: 1px;
+      white-space: nowrap;
+    }
+
+    .info-value { color: var(--text); }
+
+    /* ── TIMELINE ENTRIES ── */
+    .entry { margin-bottom: 1.4rem; }
+
+    .entry-year {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+
+    .entry-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--heading);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    .entry-sub {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .entry-detail {
+      font-size: 0.82rem;
+      color: var(--faint);
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub {
+      padding: 14px 0 14px 16px;
+      border-left: 2px solid var(--border-light);
+      margin-bottom: 1rem;
+      transition: border-color 0.18s;
+    }
+
+    .pub:hover { border-left-color: var(--accent); }
+
+    .pub-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.04rem;
+      color: var(--heading);
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+
+    .pub-authors {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .pub-authors strong { color: var(--text); font-weight: 500; }
+
+    .pub-links {
+      margin-top: 6px;
+      display: flex;
+      gap: 14px;
+      font-size: 0.78rem;
+    }
+
+    .pub-links a {
+      color: var(--faint);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.18s;
+    }
+
+    .pub-links a:hover { color: var(--accent); opacity: 1; }
+
+    /* ── TALKS ── */
+    .talk {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .talk:last-child { border-bottom: none; }
+
+    .talk-type {
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 2px;
+    }
+
+    .talk-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1rem;
+      color: var(--heading);
+      line-height: 1.45;
+    }
+
+    .talk-venue {
+      font-size: 0.81rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ── LINKS SECTION ── */
+    .link-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.9rem;
+    }
+
+    .link-row:last-child { border-bottom: none; }
+
+    .link-icon { color: var(--accent-dim); width: 18px; text-align: center; }
+
+    .link-row a { color: var(--muted); }
+    .link-row a:hover { color: var(--accent); opacity: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      #page-body {
+        grid-template-columns: 1fr;
+        padding: 0 1.2rem 4rem;
+      }
+
+      #sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 0 1rem;
+        align-items: start;
+        padding-top: 1.5rem;
+      }
+
+      .sidebar-rule { margin-top: 10px; }
+
+      .profile-photo { border-radius: 8px; }
+
+      #main-content { padding-top: 1.5rem; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section { animation: fadeUp 0.5s ease both; }
+
+    /* ── TOASTR OVERRIDE ── */
+    #toast-container > div { border-radius: 8px !important; box-shadow: var(--shadow-md) !important; }
+
+    /* ── FOCUS ── */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav id="top-nav">
+    <div class="nav-inner">
+      <span class="nav-name">Yunita K. Andriani</span>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#homeContent" class="active" id="nav-home" data-en="Home" data-jp="ホーム">Home</a></li>
+        <li><a href="#aboutmeContent" id="nav-aboutme" data-en="About" data-jp="プロフィール">About</a></li>
+        <li><a href="#academicContent" id="nav-academic" data-en="Academic" data-jp="学歴">Academic</a></li>
+        <li><a href="#researchContent" id="nav-research" data-en="Research" data-jp="研究">Research</a></li>
+        <li><a href="#blogContent" id="nav-blog" data-en="Links" data-jp="リンク">Links</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-icon" id="theme-btn" title="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="btn-icon" id="lang-btn" title="Switch language">
+          <img class="lang-flag" src="https://flagcdn.com/w20/us.png" alt="EN">
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <div id="homeContent" style="background-image: url('assets/images/BG.png');">
+    <div class="hero-inner">
+      <h1 class="hero-name">Yunita K. Andriani</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub language" data-en="Welcome to my personal page." data-jp="私のホームページへようこそ。">Welcome to my personal page.</p>
+      <div class="hero-btns">
+        <a href="#aboutmeContent" class="btn-ghost" data-en="About Me" data-jp="プロフィール">About Me</a>
+        <a href="assets/documents/2026CV.pdf" target="_blank" class="btn-ghost">📄 Full CV</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PAGE BODY ── -->
+  <div id="page-body">
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar">
+      <img src="assets/images/profilephoto1.jpg" class="profile-photo" alt="Yunita K. Andriani">
+      <div class="sidebar-name language" data-en="Yunita ANDRIANI" data-jp="ユニタ・アンドリアニ">Yunita ANDRIANI</div>
+      <div class="sidebar-pronoun language" data-en="She/Her" data-jp="彼女">She/Her</div>
+      <div class="sidebar-rule"></div>
+      <div class="contact-list">
+        <div class="contact-row">
+          <span class="contact-icon"><i class="fa-solid fa-location-dot"></i></span>
+          <span style="color:var(--muted);font-size:0.82rem;">Osaka, Japan</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon"><i class="fa-regular fa-envelope"></i></span>
+          <a href="mailto:ykandriani2871@gmail.com">Personal</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon"><i class="fa-regular fa-envelope"></i></span>
+          <a href="mailto:andriani@het.phys.sci.osaka-u.ac.jp">Academic <em style="font-size:0.75rem;color:var(--faint)">(preferred)</em></a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon"><i class="fa-brands fa-github"></i></span>
+          <a href="https://github.com/YunitaKAndriani" target="_blank">GitHub</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon"><i class="fa-brands fa-google-scholar"></i></span>
+          <a href="https://scholar.google.com/citations?user=WnFhZmYAAAAJ" target="_blank">Google Scholar</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon"><i class="fa-solid fa-atom"></i></span>
+          <a href="https://inspirehep.net/authors/2736490" target="_blank">InspireHEP</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon"><i class="fa-brands fa-linkedin"></i></span>
+          <a href="https://linkedin.com/in/yunita-kristanti-andriani-b0418a217" target="_blank">LinkedIn</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon"><i class="fa-brands fa-orcid"></i></span>
+          <a href="https://orcid.org/0000-0002-8980-2274" target="_blank">ORCiD</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main id="main-content">
+
+      <!-- ABOUT -->
+      <section class="section" id="aboutmeContent">
+        <h2 class="section-title">About Me</h2>
+
+        <p class="bio-text language"
+          data-en="I am a second-year master's student at The University of Osaka, a member of the Particle Physics Theory Group."
+          data-jp="大阪大学大学院素粒子理論研究室所属、修士課程2年生。">
+          I am a second-year master's student at <a href="https://www-het.phys.sci.osaka-u.ac.jp/" target="_blank" style="font-style:normal;color:var(--accent);">The University of Osaka</a>, a member of the Particle Physics Theory Group.
+        </p>
+
+        <div class="info-grid">
+          <span class="info-label">Full Name</span>
+          <span class="info-value">Yunita Kristanti ANDRIANI</span>
+
+          <span class="info-label">Nationality</span>
+          <span class="info-value">Indonesian</span>
+
+          <span class="info-label">Born</span>
+          <span class="info-value">Malang, Indonesia — 28 July 2001</span>
+
+          <span class="info-label">Languages</span>
+          <span class="info-value">Indonesian <em style="color:var(--faint)">(native)</em>, Javanese <em style="color:var(--faint)">(native)</em>, English, Japanese <em style="color:var(--faint)">(learning)</em>, Korean <em style="color:var(--faint)">(learning)</em></span>
+
+          <span class="info-label">Hobbies</span>
+          <span class="info-value">Painting, Photography, Sports</span>
+        </div>
+      </section>
+
+      <!-- ACADEMIC -->
+      <section class="section" id="academicContent">
+        <h2 class="section-title">Education &amp; Academic</h2>
+
+        <div class="entry">
+          <div class="entry-year">2025 – Present</div>
+          <div class="entry-title">M.Sc in Physics</div>
+          <div class="entry-sub language"
+            data-en="The University of Osaka, Osaka, Japan"
+            data-jp="大阪大学、大阪、日本">The University of Osaka, Osaka, Japan</div>
+          <div class="entry-detail">Particle Physics Theory Group, Dept. of Physics</div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-year">June 2024</div>
+          <div class="entry-title">AEPSHEP 2024</div>
+          <div class="entry-sub">Asia-Europe-Pacific School of High-Energy Physics, Nakhon Pathom, Thailand</div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-year">2019 – 2023</div>
+          <div class="entry-title">B.Sc in Physics</div>
+          <div class="entry-sub language"
+            data-en="State University of Malang, Indonesia"
+            data-jp="マラン大学、インドネシア">State University of Malang, Malang City, Indonesia</div>
+          <div class="entry-detail">Theoretical and Computational Physics Group, Dept. of Physics</div>
+          <div class="entry-detail" style="margin-top:5px;">
+            Thesis: <a href="https://repository.um.ac.id/291551/" target="_blank" style="color:var(--muted);font-style:italic;font-size:0.82rem;">
+              The Mass of Scalar Higgs and Gauge Boson in an Extended Standard Model with Additional U(1)_D Symmetry
+            </a>
+          </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top:2rem;">Honors &amp; Awards</h2>
+
+        <div class="entry">
+          <div class="entry-year">April 2025 – Present</div>
+          <div class="entry-title">MEXT Scholarship</div>
+          <div class="entry-sub language" data-en="For a master course" data-jp="修士課程">For a master course</div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-year">2023</div>
+          <div class="entry-title">Research Funding Program</div>
+          <div class="entry-sub">State University of Malang — Grant No. 5.4.1/UN32/KP/2023</div>
+        </div>
+
+        <h2 class="section-title" style="margin-top:2rem;">Experience</h2>
+
+        <div class="entry">
+          <div class="entry-year">May – Dec 2023</div>
+          <div class="entry-title">Research Assistant</div>
+          <div class="entry-sub">Research Center for Quantum Physics, BRIN, Indonesia</div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-year">Sep 2022 – Feb 2023</div>
+          <div class="entry-title">Research Internship</div>
+          <div class="entry-sub">Research Center for Quantum Physics, BRIN, Indonesia</div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-year">Aug 2021 – Jan 2022</div>
+          <div class="entry-title">Internship</div>
+          <div class="entry-sub">PT Microsoft Indonesia</div>
+        </div>
+      </section>
+
+      <!-- RESEARCH -->
+      <section class="section" id="researchContent">
+        <h2 class="section-title">Research</h2>
+
+        <p class="bio-text language"
+          data-en="I am interested in Beyond the Standard Model (BSM), particularly in Higgs Physics."
+          data-jp="標準模型を超える物理（BSM）、とりわけヒッグス物理に強い関心を持っています。">
+          I am interested in Beyond the Standard Model (BSM), particularly in Higgs Physics.
+        </p>
+
+        <h3 style="font-family:'EB Garamond',serif;font-size:1.1rem;font-style:italic;font-weight:400;color:var(--muted);margin-bottom:0.9rem;">Publications</h3>
+
+        <div class="entry-year" style="margin-bottom:8px;">2025</div>
+        <div class="pub">
+          <div class="pub-title">&ldquo;Vacuum Structure of an Extended Standard Model with U(1)<sub>D</sub> Symmetry&rdquo;</div>
+          <div class="pub-authors">Apriadi Salim Adam, <strong>Yunita Kristanti Andriani</strong>, Bayu Dirgantara</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2509.05534" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Paper</a>
+            <a href="#" class="citation"><i class="fa-solid fa-quote-left"></i> BibTeX</a>
+          </div>
+          <div class="d-none" style="display:none">@article{SalimAdam:2025wlp,
     author = "Salim Adam, Apriadi and Andriani, Yunita Kristanti and Dirgantara, Bayu",
     title = "{Vacuum Structure of an Extended Standard Model with U(1)_D Symmetry}",
     eprint = "2509.05534",
@@ -362,22 +798,17 @@
     month = "9",
     year = "2025"
 }</div>
-							</div>
-						</div>
+        </div>
 
-						<div class="mt-3">
-							<div class="year-label">2023</div>
-							<div class="pub-block mt-2">
-								<div class="pub-title">&ldquo;Investigating boson sector in an extended standard model with U(1)_D symmetry&rdquo;</div>
-								<div class="pub-authors mt-2">
-									Apriadi Salim Adam, <span class="pub-author">Yunita Kristanti Andriani</span>, Eny Latifah
-								</div>
-								<div class="pub-links mt-2">
-									<span><i class="fa fa-arrow-up-right-from-square"></i> <a href="https://doi.org/10.1088/1402-4896/acfa49" target="_blank" class="link-dark">Paper</a></span>
-									<span class="pub-force-margin-left"><i class="fas fa-quote-left"></i> <a href="#" class="link-dark citation">BibTeX</a></span>
-								</div>
-								<div class="d-none">
-@article{SalimAdam:2023lbm,
+        <div class="entry-year" style="margin-bottom:8px;margin-top:1rem;">2023</div>
+        <div class="pub">
+          <div class="pub-title">&ldquo;Investigating boson sector in an extended standard model with U(1)<sub>D</sub> symmetry&rdquo;</div>
+          <div class="pub-authors">Apriadi Salim Adam, <strong>Yunita Kristanti Andriani</strong>, Eny Latifah</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1088/1402-4896/acfa49" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Paper</a>
+            <a href="#" class="citation"><i class="fa-solid fa-quote-left"></i> BibTeX</a>
+          </div>
+          <div class="d-none" style="display:none">@article{SalimAdam:2023lbm,
     author = "Salim Adam, Apriadi and Andriani, Yunita Kristanti and Latifah, Eny",
     title = "{Investigating boson sector in an extended standard model with U(1)_D symmetry}",
     eprint = "2309.06852",
@@ -390,80 +821,150 @@
     pages = "105306",
     year = "2023"
 }</div>
-							</div>
-						</div>
+        </div>
 
-						<h3 class="section-heading mt-5"><em>Talks, Posters, &amp; More</em></h3>
+        <h3 style="font-family:'EB Garamond',serif;font-size:1.1rem;font-style:italic;font-weight:400;color:var(--muted);margin:1.8rem 0 0.9rem;">Talks &amp; Posters</h3>
 
-						<div class="mt-3">
-							<div class="year-label">2026</div>
-							<div class="pub-block mt-2">
-								<div class="pub-title">Talk &mdash; &ldquo;Tree-Level Vacuum Stability Analysis of a Multi-Scalar U(1)_D Extended Model&rdquo;</div>
-								<div class="pub-authors mt-1">New Higgs Working Group 42, Osaka, Japan.</div>
-							</div>
-							<div class="pub-block mt-2">
-								<div class="pub-title">Talk &mdash; &ldquo;Sphaleron in the Weinberg-Salam Theory&rdquo;</div>
-								<div class="pub-authors mt-1">M1 Journal Club, Particle Physics Theory Group, The University of Osaka, Osaka, Japan.</div>
-							</div>
-						</div>
+        <div class="entry-year" style="margin-bottom:6px;">2026</div>
+        <div class="talk">
+          <div class="talk-type">Talk</div>
+          <div class="talk-title">&ldquo;Tree-Level Vacuum Stability Analysis of a Multi-Scalar U(1)<sub>D</sub> Extended Model&rdquo;</div>
+          <div class="talk-venue">New Higgs Working Group 42, Osaka, Japan</div>
+        </div>
+        <div class="talk">
+          <div class="talk-type">Talk</div>
+          <div class="talk-title">&ldquo;Sphaleron in the Weinberg-Salam Theory&rdquo;</div>
+          <div class="talk-venue">M1 Journal Club, Particle Physics Theory Group, University of Osaka</div>
+        </div>
 
-						<div class="mt-3">
-							<div class="year-label">2025</div>
-							<div class="pub-block mt-2">
-								<div class="pub-title">Poster &mdash; &ldquo;Vacuum stability of an extended Higgs sector with multi-scalars under U(1) global symmetries&rdquo;</div>
-								<div class="pub-authors mt-1">HPNP 2025, Osaka, Japan.</div>
-							</div>
-						</div>
+        <div class="entry-year" style="margin-bottom:6px;margin-top:1rem;">2025</div>
+        <div class="talk">
+          <div class="talk-type">Poster</div>
+          <div class="talk-title">&ldquo;Vacuum stability of an extended Higgs sector with multi-scalars under U(1) global symmetries&rdquo;</div>
+          <div class="talk-venue">HPNP 2025, Osaka, Japan</div>
+        </div>
 
-						<div class="mt-3">
-							<div class="year-label">2023</div>
-							<div class="pub-block mt-2">
-								<div class="pub-title">Talk &mdash; &ldquo;Investigation on Boson Sector and Vacuum Stability of a U(1)_D Extended Standard Model&rdquo;</div>
-								<div class="pub-authors mt-1">Research Assistant Expo, BRIN Research Center of Quantum Physics, Serpong City, Indonesia.</div>
-							</div>
-						</div>
+        <div class="entry-year" style="margin-bottom:6px;margin-top:1rem;">2023</div>
+        <div class="talk">
+          <div class="talk-type">Talk</div>
+          <div class="talk-title">&ldquo;Investigation on Boson Sector and Vacuum Stability of a U(1)<sub>D</sub> Extended Standard Model&rdquo;</div>
+          <div class="talk-venue">Research Assistant Expo, BRIN Research Center of Quantum Physics, Serpong City, Indonesia</div>
+        </div>
+      </section>
 
-						<h3 class="section-heading mt-5"><em>Grants</em></h3>
+      <!-- LINKS / BLOG -->
+      <section class="section" id="blogContent">
+        <h2 class="section-title">Personal Links</h2>
+        <p style="font-size:0.87rem;color:var(--muted);margin-bottom:1rem;font-style:italic;">Visit me on my personal pages below.</p>
 
-						<div class="mt-3">
-							<div class="year-label">2023</div>
-							<div class="pub-block mt-2">
-								<div class="pub-title">State University of Malang's Research Funding Program</div>
-								<div class="pub-authors mt-1">Grant No. 5.4.1/UN32/KP/2023</div>
-							</div>
-						</div>
+        <div class="link-row">
+          <span class="link-icon"><i class="fa-brands fa-medium"></i></span>
+          <a href="https://medium.com/@yunitandrianikristanti" target="_blank">Medium</a>
+        </div>
+        <div class="link-row">
+          <span class="link-icon"><i class="fa-brands fa-instagram"></i></span>
+          <a href="https://instagram.com/ykandriani" target="_blank">Instagram</a>
+        </div>
+      </section>
 
-					</section>
+    </main>
+  </div><!-- /page-body -->
 
-					<!-- ===== BLOG ===== -->
-					<section id="blogContent" class="content-section mb-5">
-						<h3 class="section-heading"
-							data-jp="リンクス"
-							data-en="Links"><em>Links</em>
-						</h3>
-						<p class="mb-4"><em>Visit me on my personal pages below.</em></p>
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-						<div class="blog-link-row">
-							<span class="blog-icon"><i class="fa-brands fa-medium"></i></span>
-							<a href="https://medium.com/@yunitandrianikristanti" class="link-dark" target="_blank">Medium</a>
-						</div>
+  <script>
+    // ── THEME ──────────────────────────────────────────────
+    const html = document.documentElement;
+    const themeBtn = document.getElementById('theme-btn');
 
-						<div class="blog-link-row">
-							<span class="blog-icon"><i class="fa-brands fa-instagram"></i></span>
-							<a href="https://instagram.com/ykandriani" class="link-dark" target="_blank">Instagram</a>
-						</div>
-					</section>
+    function getTheme() {
+      return localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    }
 
-				</div><!-- /mainPanel -->
-			</div><!-- /row -->
-		</div><!-- /container -->
+    function applyTheme(t) {
+      html.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+      themeBtn.innerHTML = t === 'dark'
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
+    }
 
-		<!-- Scripts -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-		<script src="assets/js/languageManager.js"></script>
-		<script src="assets/js/main.js"></script>
-	</body>
+    applyTheme(getTheme());
 
+    themeBtn.addEventListener('click', () => {
+      applyTheme(getTheme() === 'dark' ? 'light' : 'dark');
+    });
+
+    // ── LANGUAGE ───────────────────────────────────────────
+    const langBtn = document.getElementById('lang-btn');
+    let currentLang = 'en';
+
+    function applyLang(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang) || el.getAttribute('data-en');
+      });
+      langBtn.innerHTML = lang === 'en'
+        ? '<img class="lang-flag" src="https://flagcdn.com/w20/us.png" alt="EN">'
+        : '<img class="lang-flag" src="https://flagcdn.com/w20/jp.png" alt="JP">';
+    }
+
+    langBtn.addEventListener('click', () => applyLang(currentLang === 'en' ? 'jp' : 'en'));
+
+    // ── MOBILE NAV ────────────────────────────────────────
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // ── ACTIVE NAV ────────────────────────────────────────
+    const sections = ['homeContent','aboutmeContent','academicContent','researchContent','blogContent'];
+    const navEls   = ['nav-home','nav-aboutme','nav-academic','nav-research','nav-blog'];
+
+    function updateNav() {
+      const navH = document.getElementById('top-nav').offsetHeight + 20;
+      const scrollY = window.scrollY + navH;
+      let active = 0;
+      sections.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) active = i;
+      });
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      document.getElementById(navEls[active])?.classList.add('active');
+    }
+
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // ── SMOOTH SCROLL ─────────────────────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const navH = document.getElementById('top-nav').offsetHeight + 12;
+        window.scrollTo({ top: target.offsetTop - navH, behavior: 'smooth' });
+      });
+    });
+
+    // ── BIBTEX COPY ──────────────────────────────────────
+    document.querySelectorAll('.citation').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const bibtex = link.closest('.pub')?.querySelector('.d-none');
+        if (bibtex) {
+          navigator.clipboard.writeText(bibtex.innerText.trim())
+            .then(() => toastr.success('BibTeX copied!'))
+            .catch(() => toastr.error('Copy failed'));
+        }
+      });
+    });
+
+    // toastr config
+    toastr.options = { timeOut: 2000, positionClass: 'toast-bottom-right', closeButton: false };
+  </script>
+</body>
 </html>
