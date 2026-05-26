@@ -112,6 +112,9 @@ a:hover {
 		rgba(15, 10, 5, 0.30) 60%,
 		rgba(15, 10, 5, 0.45) 100%
 	);
+	filter: blur(12px); 
+	transform: scale(1.1);
+	
 	z-index: 1;
 }
 
@@ -199,52 +202,6 @@ a:hover {
 	opacity: 1;
 }
 
-/* ===== SECTION BANNER BLOCK (inline, per section) ===== */
-
-.section-banner-block {
-	background: var(--surface);
-	border: 1px solid var(--border);
-	border-radius: 14px;
-	padding: 28px 30px 22px;
-	text-align: center;
-	margin-bottom: 28px;
-	box-shadow: 0 2px 16px var(--shadow);
-}
-
-.section-banner-eyebrow {
-	display: block;
-	font-family: 'DM Sans', sans-serif;
-	font-size: 0.68rem;
-	font-weight: 500;
-	letter-spacing: 3.5px;
-	text-transform: uppercase;
-	color: var(--accent);
-	margin-bottom: 6px;
-}
-
-.section-banner-title {
-	font-family: 'Cormorant Garamond', serif;
-	font-size: clamp(1.9rem, 4vw, 2.7rem);
-	font-weight: 500;
-	color: var(--heading) !important;
-	line-height: 1.15;
-	margin: 0;
-	display: inline-block;
-}
-
-.section-banner-title::after {
-	content: '';
-	display: block;
-	width: 36px;
-	height: 1px;
-	background: var(--accent-light);
-	margin: 8px auto 0;
-}
-
-.section-body {
-	padding: 0 4px;
-}
-
 /* ===== MAIN CONTENT AREA ===== */
 
 #main-content {
@@ -253,8 +210,7 @@ a:hover {
 }
 
 .content-section {
-	margin-bottom: 4rem;
-	scroll-margin-top: 80px; /* offset for sticky navbar */
+	animation: sectionFadeIn 0.5s ease both;
 }
 
 /* ===== LEFT PANEL (PROFILE CARD) ===== */
@@ -345,7 +301,7 @@ a:hover {
 /* Year labels */
 .year-label {
 	font-family: 'DM Sans', sans-serif;
-	font-size: 0.72rem;
+	font-size: 0.8rem;
 	font-weight: 600;
 	letter-spacing: 2.5px;
 	text-transform: uppercase;
