@@ -180,7 +180,7 @@ function activateLink(e) {
 			.removeClass('col-md-12')
 			.addClass('col-md-8 offset-md-1');
 	} else {
-		$('#leftPanel').show();
+		$('#leftPanel').hide();
 		$('#mainPanel')
 			.removeClass('col-md-8 offset-md-1')
 			.addClass('col-md-12');
