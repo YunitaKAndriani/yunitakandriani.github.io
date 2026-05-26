@@ -1,6 +1,5 @@
 /* ===== DEFAULT CSS VARIABLES (light theme fallback) =====
-   These ensure the page renders correctly on first load,
-   before light.css or dark.css is injected by JavaScript. */
+   */
 
    :root {
 	--bg:           #ecf7ee;
@@ -553,7 +552,7 @@ a:hover {
 
 /* ===== ANIMATIONS ===== */
 
-/* @keyframes heroFadeUp {
+@keyframes heroFadeUp {
 	from { opacity: 0; transform: translateY(20px); }
 	to   { opacity: 1; transform: translateY(0);    }
 }
@@ -561,7 +560,7 @@ a:hover {
 @keyframes sectionFadeIn {
 	from { opacity: 0; transform: translateY(10px); }
 	to   { opacity: 1; transform: translateY(0);    }
-} */
+}
 
 /* ===== RESPONSIVE ===== */
 
