@@ -1,76 +1,50 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
-	// Hide all sections initially
-	$('#homeContent').hide();
-	$('#aboutmeContent').hide();
-	$('#academicContent').hide();
-	$('#researchContent').hide();
-	$('#blogContent').hide();
-
-	// Options menu is hidden by default
+	// Options menu hidden by default
 	$('#theme').hide();
 	$('#lan').hide();
 
-	// ─── NAV: Home ───────────────────────────────────────────
-	$('#home').click(function(e) {
-		if (!$(e.currentTarget).hasClass('active')) {
-			clearActiveLinks();
-			activateLink(e);
-			clearActiveDivs();
-			activateDiv('#homeContent');
+	// ─── Smooth scroll for nav links ─────────────────────────
+	$('#navbarList .nav-link').on('click', function (e) {
+		const href = $(this).attr('href');
+		if (!href || href === '#') return;
+
+		const target = $(href);
+		if (target.length) {
+			e.preventDefault();
+			const navHeight = $('#top-nav').outerHeight() || 70;
+			$('html, body').animate({
+				scrollTop: target.offset().top - navHeight - 16
+			}, 400);
 		}
 	});
 
-	// ─── NAV: About Me ───────────────────────────────────────
-	$('#aboutme').click(function(e) {
-		if (!$(e.currentTarget).hasClass('active')) {
-			clearActiveLinks();
-			activateLink(e);
-			clearActiveDivs();
-			activateDiv('#aboutmeContent');
-		}
-	});
+	// ─── Highlight active nav on scroll ──────────────────────
+	const sections = ['homeContent', 'aboutmeContent', 'academicContent', 'researchContent', 'blogContent'];
+	const navIds   = ['nav-home', 'nav-aboutme', 'nav-academic', 'nav-research', 'nav-blog'];
 
-	// ─── NAV: Academic ───────────────────────────────────────
-	$('#academic').click(function(e) {
-		if (!$(e.currentTarget).hasClass('active')) {
-			clearActiveLinks();
-			activateLink(e);
-			clearActiveDivs();
-			activateDiv('#academicContent');
-		}
-	});
+	function updateActiveNav() {
+		const navHeight = $('#top-nav').outerHeight() || 70;
+		const scrollY = $(window).scrollTop() + navHeight + 20;
 
-	// ─── NAV: Research ───────────────────────────────────────
-	$('#research').click(function(e) {
-		if (!$(e.currentTarget).hasClass('active')) {
-			clearActiveLinks();
-			activateLink(e);
-			clearActiveDivs();
-			activateDiv('#researchContent');
-		}
-	});
+		let active = 0;
+		sections.forEach(function (id, i) {
+			const el = $('#' + id);
+			if (el.length && el.offset().top <= scrollY) {
+				active = i;
+			}
+		});
 
-	// ─── NAV: Blog ───────────────────────────────────────────
-	$('#blog').click(function(e) {
-		if (!$(e.currentTarget).hasClass('active')) {
-			clearActiveLinks();
-			activateLink(e);
-			clearActiveDivs();
-			activateDiv('#blogContent');
-		}
-	});
+		$('#navbarList .nav-link').removeClass('active');
+		$('#' + navIds[active]).addClass('active');
+	}
 
-	// ─── Hero "About Me" button ───────────────────────────────
-	$('#aboutmeBtn').click(function(e) {
+	$(window).on('scroll', updateActiveNav);
+	updateActiveNav();
+
+	// ─── BibTeX copy ─────────────────────────────────────────
+	$(document).on('click', '.citation', function (e) {
 		e.preventDefault();
-		$('#aboutme').click();
-	});
-
-	// ─── BibTeX copy (FIX: was ".citation", now matches HTML class) ──
-	$(document).on('click', '.citation', function(e) {
-		e.preventDefault();
-		// Navigate: <a.citation> → <span> → <div.pub-links> → next sibling <div.d-none>
 		var bibtex = $(this).closest('.pub-links').next('.d-none')[0];
 		if (bibtex) {
 			navigator.clipboard.writeText(bibtex.innerText.trim())
@@ -79,17 +53,10 @@ $(document).ready(function(){
 		}
 	});
 
-	// ─── Clickable blog cards ─────────────────────────────────
-	$('.clickable').click(function(e) {
-		window.open($(e.currentTarget)[0].childNodes[1].innerText, '_blank').focus();
-	});
-
 	// ─── Theme preference ─────────────────────────────────────
 	if (localStorage.getItem('theme') === null) {
 		localStorage.theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	}
-
-	// Load the correct theme on startup
 	if (localStorage.theme === 'dark') {
 		loadTheme('dark');
 		$('#theme').empty().append("<i class='fa-solid fa-sun'></i>");
@@ -99,44 +66,38 @@ $(document).ready(function(){
 	}
 
 	// ─── Options toggler ──────────────────────────────────────
-	$('#options-toggler').click(function(e) {
-		if (!$(e.currentTarget).hasClass('active')) {
-			$(e.currentTarget).addClass('active');
+	$('#options-toggler').click(function () {
+		if (!$(this).hasClass('active')) {
+			$(this).addClass('active');
 			$('#theme').show('fast');
 			$('#lan').show('fast');
 		} else {
-			$(e.currentTarget).removeClass('active');
+			$(this).removeClass('active');
 			$('#theme').hide('fast');
 			$('#lan').hide('fast');
 		}
 	});
 
 	// ─── Toggle light / dark ─────────────────────────────────
-	$('#theme').click(function() {
+	$('#theme').click(function () {
 		if (localStorage.theme !== 'dark') {
 			localStorage.theme = 'dark';
 			loadTheme('dark');
-			$('#theme').empty().append("<i class='fa-solid fa-sun'></i>");
+			$(this).empty().append("<i class='fa-solid fa-sun'></i>");
 		} else {
 			localStorage.theme = 'light';
 			loadTheme('light');
-			$('#theme').empty().append("<i class='fa-solid fa-moon'></i>");
+			$(this).empty().append("<i class='fa-solid fa-moon'></i>");
 		}
 	});
 
 	// ─── Language switcher ───────────────────────────────────
 	const langManager = new LanguageManager();
-
-	$('#lan').click(function() {
+	$('#lan').click(function () {
 		const newLang = langManager.getNextLanguage();
 		langManager.setLanguage(newLang);
 	});
 
-	// ─── Initial state: show Home ─────────────────────────────
-	$('#section-content').hide();
-	$('#homeContent').show();
-	$('#home').addClass('active');
-	$('#leftPanel').hide();
 });
 
 // ─── Helpers ─────────────────────────────────────────────────
@@ -145,68 +106,7 @@ function loadTheme(theme) {
 	$("link[href='assets/css/light.css']").remove();
 	$("link[href='assets/css/dark.css']").remove();
 	$('<link>').appendTo('head').attr({
-		type: 'text/css',
-		rel: 'stylesheet',
-		href: `assets/css/${theme}.css`
+		type: 'text/css', rel: 'stylesheet',
+		href: 'assets/css/' + theme + '.css'
 	});
 }
-
-function clearActiveLinks() {
-	$('#navbarList .nav-item .nav-link').removeClass('active');
-}
-
-function clearActiveDivs() {
-	$('#aboutmeContent, #academicContent, #researchContent, #blogContent')
-		.hide()
-		.removeClass('active');
-}
-
-function activateLink(e) {
-	$(e.target).addClass('active');
-	const id = e.target.id;
-
-	if (id === 'home') {
-		$('#homeContent').show();
-		$('#section-content').hide();
-		return;
-	}
-
-	$('#homeContent').hide();
-	$('#section-content').show();
-
-	if (id === 'aboutme') {
-		$('#leftPanel').show();
-		$('#mainPanel')
-			.removeClass('col-md-12')
-			.addClass('col-md-8 offset-md-1');
-	} else {
-		$('#leftPanel').hide();
-		$('#mainPanel')
-			.removeClass('col-md-8 offset-md-1')
-			.addClass('col-md-12');
-	}
-}
-
-function activateDiv(divId) {
-	if (divId !== '#homeContent') {
-		$('#section-content').show();
-	}
-	$(divId).addClass('active').show();
-	scrollToContent(divId);
-}
-
-function scrollToContent(divId) {
-	if ($(window).width() < 751) {
-		$('html, body').animate({ scrollTop: $(divId).offset().top - 70 }, 250);
-	}
-}
-
-// function scrollToContent(divId) {
-// 	if ($(window).width() < 751) {
-// 		// Option A: Use .scrollTop() for an instant jump
-// 		$(window).scrollTop($(divId).offset().top - 70);
-		
-// 		// OR Option B: Keep .animate but set time to 0
-// 		// $('html, body').animate({ scrollTop: $(divId).offset().top - 70 }, 0);
-// 	}
-// }

@@ -2,42 +2,29 @@
 <html lang="en">
 
 	<head>
-
-		<!-- Meta tags -->
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
 		<meta name="description" content="Yunita Kristanti Andriani's website, biography, academic, previous experience, and published papers."/>
-		<meta name="keywords" content="yunita kristanti andriani, yunita k andriani, yunita andriani, yunita kristanti"/>
-		
+		<meta name="keywords" content="yunita kristanti andriani, yunita k andriani, yunita andriani"/>
 		<meta name="author" content="Yunita K. Andriani" />
 		<meta name="copyright" content="Work protected by copyright; no distribution without permission." />
-		
-		<!-- Title + Icon -->
+
 		<title>Yunita Kristanti Andriani</title>
 		<link rel="icon" type="image/x-icon" href="assets/documents/imgs/NicolasMeseguer.ico">
-
-		<!-- Improve SEO -->
 		<meta name="robots" content="index,follow" />
 
-		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
-		
-		<!-- Styles -->
+
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-
-		<link rel="stylesheet" href="assets/css/light.css" id="theme-stylesheet">
 		<link rel="stylesheet" href="assets/css/main.css">
-
 	</head>
 
-	<!-- Google tag (gtag.js) & Google Analytics -->
 	<script>
         fetch('./assets/js/config.json')
             .then(response => response.json())
@@ -46,7 +33,6 @@
                 scriptTag.async = true;
                 scriptTag.src = `https://www.googletagmanager.com/gtag/js?id=${config.googleAnalyticsMeasurementId}`;
                 document.head.appendChild(scriptTag);
-
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
@@ -62,7 +48,6 @@
 		<div class="options-button" id="theme"><i class="fa-solid fa-moon"></i></div>
 		<div class="options-button" id="lan"><img class="lang-flag" src="https://flagcdn.com/w20/us.png" alt="Selected language"></div>
 
-
 		<!-- Navbar -->
 		<nav id="top-nav" class="navbar navbar-expand-md flex-md-nowrap flex-wrap">
 			<div class="container justify-content-center">
@@ -72,42 +57,32 @@
 				<div class="navbar-collapse collapse flex-grow-1 justify-content-center" id="collapsingNavbar3">
 					<ul class="navbar-nav mx-auto language" id="navbarList">
 						<li class="nav-item">
-							<a class="nav-link" id="home" href="#"
-								data-jp="ホーム"
-								data-en="Home">
-							</a>
+							<a class="nav-link" id="nav-home" href="#homeContent"
+								data-jp="ホーム" data-en="Home"></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="aboutme" href="#"
-								data-jp="プロフィール"
-								data-en="About Me">
-							</a>
+							<a class="nav-link" id="nav-aboutme" href="#aboutmeContent"
+								data-jp="プロフィール" data-en="About Me"></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="academic" href="#"
-								data-jp="学歴"
-								data-en="Academic">
-							</a>
+							<a class="nav-link" id="nav-academic" href="#academicContent"
+								data-jp="学歴" data-en="Academic"></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="research" href="#"
-								data-jp="研究"
-								data-en="Research">
-							</a>
+							<a class="nav-link" id="nav-research" href="#researchContent"
+								data-jp="研究" data-en="Research"></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="blog" href="#"
-								data-jp="ブログ"
-								data-en="Personal Blog">
-							</a>
+							<a class="nav-link" id="nav-blog" href="#blogContent"
+								data-jp="ブログ" data-en="Personal Blog"></a>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 
-		<!-- ===== HERO (Full-Width, Outside Container) ===== -->
-		<div id="homeContent" class="active" style="background-image: url('assets/images/BG.png');">
+		<!-- ===== HERO ===== -->
+		<div id="homeContent" style="background-image: url('assets/documents/imgs/BG.png');">
 			<div class="hero-inner">
 				<div class="hero-text">
 					<h1 class="hero-name">Yunita K. Andriani</h1>
@@ -115,23 +90,23 @@
 						data-jp="私のホームページへようこそ。"
 						data-en="Welcome to my personal page.">Welcome to my personal page.</p>
 					<div class="hero-btns mt-4">
-						<a href="#" id="aboutmeBtn" class="btn btn-hero me-2">About Me</a>
-						<a href="assets/documents/2026CV.pdf" target="_blank" class="btn btn-hero me-2">📄 Full CV</a>
+						<a href="#aboutmeContent" class="btn btn-hero me-2">About Me</a>
+						<a href="assets/documents/2026CV.pdf" target="_blank" class="btn btn-hero-outline me-2">CV</a>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- ===== SECTION CONTENT ===== -->
+		<!-- ===== MAIN LAYOUT ===== -->
 		<div class="container" id="main-content">
-			<div class="row content" id="section-content" style="display: none;">
+			<div class="row" id="section-content">
 
-				<!-- Left Panel: Profile & Contact -->
+				<!-- Left Panel: Profile & Contact (sticky) -->
 				<div id="leftPanel" class="col-md-3 language">
 					<div class="profile-card">
 						<div class="row mb-3">
 							<div class="col">
-								<img src="assets/images/profilephoto1.jpg" class="profilepicture img-fluid" alt="Profile picture">
+								<img src="assets/images/profilephoto.jpg" class="profilepicture img-fluid" alt="Profile picture">
 							</div>
 						</div>
 
@@ -139,7 +114,7 @@
 							data-jp="ユニタ・アンドリアニ"
 							data-en="Yunita ANDRIANI">Yunita ANDRIANI</h3>
 
-						<p class="profile-pronoun mb-4">
+						<p class="profile-pronoun mb-3">
 							<span class="t-secondary" data-jp="彼女" data-en="She/Her">She/Her</span>
 						</p>
 
@@ -150,328 +125,183 @@
 								<span class="contact-icon"><i class="fa-solid fa-location-dot"></i></span>
 								<span>Osaka, Japan</span>
 							</div>
-
 							<div class="contact-row">
 								<span class="contact-icon"><i class="fa-regular fa-envelope"></i></span>
 								<a href="mailto:ykandriani2871@gmail.com" class="link-dark">Personal</a>
 							</div>
-
 							<div class="contact-row">
 								<span class="contact-icon"><i class="fa-regular fa-envelope"></i></span>
 								<a href="mailto:andriani@het.phys.sci.osaka-u.ac.jp" class="link-dark">Academic <em>(preferred)</em></a>
 							</div>
-
-							<div class="contact-row">
-								<span class="contact-icon"><i class="fa-brands fa-github"></i></span>
-								<a href="https://github.com/YunitaKAndriani" class="link-dark" target="_blank">GitHub</a>
-							</div>
-
-							<div class="contact-row">
-								<span class="contact-icon"><i class="fa-brands fa-google-scholar"></i></span>
-								<a href="https://scholar.google.com/citations?user=WnFhZmYAAAAJ" class="link-dark" target="_blank">Google Scholar</a>
-							</div>
-
-							<div class="contact-row">
-								<span class="contact-icon"><i class="fa-solid fa-atom"></i></span>
-								<a href="https://inspirehep.net/authors/2736490" class="link-dark" target="_blank">InspireHEP</a>
-							</div>
-
 							<div class="contact-row">
 								<span class="contact-icon"><i class="fa-brands fa-linkedin"></i></span>
 								<a href="https://linkedin.com/in/yunita-kristanti-andriani-b0418a217" class="link-dark" target="_blank">LinkedIn</a>
 							</div>
-
+							<div class="contact-row">
+								<span class="contact-icon"><i class="fa-solid fa-atom"></i></span>
+								<a href="https://inspirehep.net/authors/2736490" class="link-dark" target="_blank">InspireHEP</a>
+							</div>
 							<div class="contact-row">
 								<span class="contact-icon"><i class="fa-brands fa-orcid"></i></span>
 								<a href="https://orcid.org/0000-0002-8980-2274" class="link-dark" target="_blank">ORCiD</a>
+							</div>
+							<div class="contact-row">
+								<span class="contact-icon"><i class="fa-brands fa-github"></i></span>
+								<a href="https://github.com/YunitaKAndriani" class="link-dark" target="_blank">GitHub</a>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<!-- Main Panel -->
-				<div id="mainPanel" class="col-md-8 offset-md-1 mb-5">
+				<!-- ===== MAIN PANEL: all sections stacked ===== -->
+				<div id="mainPanel" class="col-md-8 offset-md-1">
 
-					<!-- ===== ABOUT ME ===== -->
-					<section class="mb-5 content-section" id="aboutmeContent">
-						<!-- <div class="container"> -->
-							<div class="row language">
-								<p class="mt-2 justify">
-									<em><span
-										data-jp='大阪大学大学院素粒子理論研究室所属、修士課程2年生。<a href="https://www-het.phys.sci.osaka-u.ac.jp/" class="link-dark" target="_blank">素粒子理論研究室</a>の一員です。'
-										data-en='I am a second-year master&#39;s student at The University of Osaka, a member of the <a href="https://www-het.phys.sci.osaka-u.ac.jp/" class="link-dark" target="_blank">Particle Physics Theory Group</a>.'>
-										I am a second-year master's student at The University of Osaka, a member of the
-										<a href="https://www-het.phys.sci.osaka-u.ac.jp/" class="link-dark" target="_blank">Particle Physics Theory Group</a>.
-									</span></em>
-								</p>
+					<!-- ── ABOUT ME ── -->
+					<section id="aboutmeContent" class="content-section">
+						<div class="section-banner-block">
+							<span class="section-banner-eyebrow language" data-jp="ユニタ・アンドリアニ" data-en="Yunita K. Andriani">Yunita K. Andriani</span>
+							<h2 class="section-banner-title language" data-jp="プロフィール" data-en="About Me"><em>About Me</em></h2>
+						</div>
 
-								<h3 id="profile" class="section-heading mt-4"
-									data-jp="プロフィール"
-									data-en="Profile"><em>Profile</em>
-								</h3>
+						<div class="section-body language">
+							<p class="mt-2 justify">
+								<em><span
+									data-jp='大阪大学大学院素粒子理論研究室所属、修士課程2年生。<a href="https://www-het.phys.sci.osaka-u.ac.jp/" class="link-dark" target="_blank">素粒子理論研究室</a>の一員です。'
+									data-en='I am a second-year master&#39;s student at The University of Osaka, a member of the <a href="https://www-het.phys.sci.osaka-u.ac.jp/" class="link-dark" target="_blank">Particle Physics Theory Group</a>.'>
+									I am a second-year master's student at The University of Osaka, a member of the
+									<a href="https://www-het.phys.sci.osaka-u.ac.jp/" class="link-dark" target="_blank">Particle Physics Theory Group</a>.
+								</span></em>
+							</p>
 
-								<ul class="info-list mt-2">
-									<li><strong>Full Name:</strong> Yunita Kristanti ANDRIANI</li>
-									<li><strong>Nationality:</strong> Indonesian</li>
-									<li><strong>Place/Date of Birth:</strong> Malang, Indonesia &ndash; 28 July 2001</li>
-									<li><strong>Languages:</strong> Indonesian <em>(native)</em>, Javanese <em>(native)</em>, English, Japanese <em>(learning)</em>, Korean <em>(learning)</em></li>
-								</ul>
+							<h3 class="section-heading mt-4" data-jp="プロフィール" data-en="Profile"><em>Profile</em></h3>
+							<ul class="info-list mt-2">
+								<li><strong>Full Name:</strong> Yunita Kristanti ANDRIANI</li>
+								<li><strong>Nationality:</strong> Indonesian</li>
+								<li><strong>Place/Date of Birth:</strong> Malang, Indonesia &ndash; 28 July 2001</li>
+								<li><strong>Languages:</strong> Indonesian <em>(native)</em>, Javanese <em>(native)</em>, English, Japanese <em>(learning)</em>, Korean <em>(learning)</em></li>
+							</ul>
 
-								<h3 id="hobbiesH4" class="section-heading mt-4"
-									data-jp="趣味"
-									data-en="Hobbies"><em>Hobbies</em>
-								</h3>
-
-								<!-- <div class="container mt-3">
-									<div class="row hobby-row">
-										<div class="col-md-3 thumbnail">
-											<div class="hobby-emoji-box" aria-label="Painting">🎨</div>
-										</div>
-										<div class="col-md-9" id="hobbie1">
-											<strong class="language"
-												data-jp="絵を書きこと"
-												data-en="Painting"></strong>
-											<p class="mt-2 justify language"
-												data-jp="子供の頃から絵を描くのが好きで、いつか画家になってフルタイムの仕事に就きたいと夢見ていました。今は、ストレス解消と自分のビジョンを記録する手段として、風景や自然を描くことを楽しんでいます。"
-												data-en="I enjoyed drawing and painting since I was a child, and ever dreamed of becoming a painter as a full-time career. Now, I enjoy painting landscapes and nature as a way to relieve stress and document my vision.">
-											</p>
-										</div>
-									</div>
-
-									<div class="row hobby-row mt-4">
-										<div class="col-md-3 thumbnail">
-											<div class="hobby-emoji-box" aria-label="Photography">📷</div>
-										</div>
-										<div class="col-md-9" id="hobbie2">
-											<strong class="language"
-												data-jp="写真術"
-												data-en="Taking pictures (not photography)"></strong>
-											<p class="mt-2 justify language"
-												data-jp="これは1年も経たないうちに始めた、新しい趣味です。絵画と同じように、自分のビジョンを写真で記録しようとしています。"
-												data-en="This is my newest hobby that I developed less than a year ago. I am not good at photography, just loving taking pictures.">
-											</p>
-										</div>
-									</div> -->
-								<!-- </div> -->
-								<div class="hobby-cards mt-3">
-									<div class="hobby-card">
-										<div class="hobby-emoji-box" aria-label="Painting">🎨</div>
-										<span class="hobby-label language" data-jp="絵を書きこと" data-en="Painting"></span>
-									</div>
-									<div class="hobby-card">
-										<div class="hobby-emoji-box" aria-label="Photography">📷</div>
-										<span class="hobby-label language" data-jp="写真術" data-en="Taking pictures (not photography)"></span>
-									</div>
-									<div class="hobby-card">
-										<div class="hobby-emoji-box" aria-label="Sports">🏃‍♀️</div>
-										<span class="hobby-label language" data-jp="スポーツ" data-en="Sports"></span>
-									</div>
+							<h3 class="section-heading mt-4" data-jp="趣味" data-en="Hobbies"><em>Hobbies</em></h3>
+							<div class="hobby-cards mt-3">
+								<div class="hobby-card">
+									<div class="hobby-emoji-box" aria-label="Painting">🎨</div>
+									<span class="hobby-label language" data-jp="絵を書きこと" data-en="Painting"></span>
+								</div>
+								<div class="hobby-card">
+									<div class="hobby-emoji-box" aria-label="Photography">📷</div>
+									<span class="hobby-label language" data-jp="写真術" data-en="Taking pictures"></span>
 								</div>
 							</div>
-						<!-- </div> -->
+						</div>
 					</section>
 
-					<!-- ===== ACADEMIC ===== -->
-					<section id="academicContent" class="mb-5 content-section">
-						<!-- <div class="container"> -->
+					<!-- ── ACADEMIC ── -->
+					<section id="academicContent" class="content-section">
+						<div class="section-banner-block">
+							<span class="section-banner-eyebrow language" data-jp="ユニタ・アンドリアニ" data-en="Yunita K. Andriani">Yunita K. Andriani</span>
+							<h2 class="section-banner-title language" data-jp="学歴" data-en="Academic"><em>Academic</em></h2>
+						</div>
 
-							<h3 class="section-heading"
-								data-jp="学歴"
-								data-en="Education"><em>Education & Qualifications</em>
-							</h3>
+						<div class="section-body">
+							<h3 class="section-heading" data-jp="学歴" data-en="Education"><em>Education</em></h3>
 
-							<div class="row mt-3">
+							<div class="mt-3">
 								<div class="year-label">2025 &ndash; present</div>
 								<div class="pub-block mt-2">
 									<div class="pub-title">M.Sc in Physics</div>
-									<div class="pub-authors mt-1"
-										data-jp="大阪大学、大阪、日本"
-										data-en="The University of Osaka, Osaka, Japan">The University of Osaka, Osaka, Japan</div>
+									<div class="pub-authors mt-1" data-jp="大阪大学、大阪、日本" data-en="The University of Osaka, Osaka, Japan">The University of Osaka, Osaka, Japan</div>
 									<div class="pub-authors mt-1"><em>Particle Physics Theory Group, Dept. of Physics</em></div>
 								</div>
 							</div>
 
-							<div class="row mt-3">
-								<div class="year-label">12 june 2024 &ndash; 25 June 2024</div>
+							<div class="mt-3">
+								<div class="year-label">2019 &ndash; 2023</div>
 								<div class="pub-block mt-2">
-									<div class="pub-title"></div>
-									<div class="pub-authors mt-1"
-										data-jp="AEPSHEP2024, タイ"
-										data-en="AEPSHEP2024 (Asia-Europe-Pacific School of High-Energy Physics), Nakhon Pathom, Thailand">AEPSHEP2024 (Asia-Europe-Pacific School of High-Energy Physics), Nakhon Pathom, Thailand</div>
-									<div class="pub-authors mt-1"><em></em></div>
-								</div>
-							</div>
-
-							<div class="row mt-3">
-								<div class="year-label">July 2019 &ndash; May 2023</div>
-								<div class="pub-block mt-2">
-									<div class="pub-title">B.Sc in Physics</div>
-									<div class="pub-authors mt-1"
-										data-jp="マラン大学, マラン、インドネシア"
-										data-en="State University of Malang, Malang City, Indonesia">State University of Malang, Malang City, Indonesia</div>
+									<div class="pub-title">B.Sc. in Physics</div>
+									<div class="pub-authors mt-1" data-jp="マラン大学, マラン、インドネシア" data-en="State University of Malang, Malang City, Indonesia">State University of Malang, Malang City, Indonesia</div>
 									<div class="pub-authors mt-1"><em>Theoretical and Computational Physics Group, Dept. of Physics</em></div>
 									<div class="pub-authors mt-2">
 										<span data-jp="論文:" data-en="Thesis:">Thesis:</span>
-										<em>
-											<a href="https://repository.um.ac.id/291551/" class="link-dark" target="_blank"
-											data-en="The Mass of Scalar Higgs and Gauge Boson in an Extended Standard Model with Additional U(1)_D Symmetry">
-											The Mass of Scalar Higgs and Gauge Boson in an Extended Standard Model with Additional U(1)_D Symmetry
-											</a>
-										</em>
+										<em><a href="https://repository.um.ac.id/291551/" class="link-dark" target="_blank">The Mass of Scalar Higgs and Gauge Boson in an Extended Standard Model with Additional U(1)_D Symmetry</a></em>
 									</div>
 								</div>
 							</div>
 
-							<h3 class="section-heading mt-5"
-								data-jp="受賞歴"
-								data-en="Honors and Awards"><em>Honors and Awards</em>
-							</h3>
-
-							<div class="row mt-3">
-								<div class="year-label">April 2025 &ndash; present</div>
-								<div class="pub-block mt-2">
-									<div class="pub-title"><span data-jp="文部科学省" data-en="MEXT Scholarship"></span>MEXT Scholarship</div>
-									<div class="pub-authors mt-1"
-										data-jp="修士課程"
-										data-en="for a master course">for a master course
-									</div>
-								</div>
-							</div>
-
-							<!-- <div class="row language">
-								<ul class="info-list mt-2">
-									<li>
-										<strong><span data-jp="文部科学省" data-en="MEXT Scholarship"></span></strong>,
-										<span data-jp="修士課程" data-en="for a master course"></span>
-										&mdash; <span data-en="April 2025 &ndash; March 2027" data-jp="2025年4月 &ndash; 2027年3月"></span>
-									</li>
-								</ul>
-							</div> -->
-
-							<h3 class="section-heading mt-5"
-								data-jp=""
-								data-en="Experiences"><em>Experiences: Professional Training & Working</em>
-							</h3>
-
-							<div class="row language">
-								<ul class="info-list mt-2">
-									<li>
-										<strong><span data-jp="2023年5月 &ndash; 2023年12月" data-en="May 2023 &ndash; Dec 2023"></span></strong>,
-										<span data-jp="リサーチアシスタント" data-en="Research Assistant"></span>
-										&mdash; <span data-en="Research Center for Quantum Physics, National Research and Innovation Agency (BRIN)" data-jp="インドネシア国立研究イノベーション庁（BRIN）量子物理学研究センター"></span>
-									</li>
-								</ul>
-								<ul class="info-list mt-2">
-									<li>
-										<strong><span data-jp="2022年9月 &ndash; 2023年2月" data-en="May 2023 &ndash; Dec 2023"></span></strong>,
-										<span data-jp="研究実習" data-en="
-											Research Internship"></span>
-										&mdash; <span data-en="Research Center for Quantum Physics, National Research and Innovation Agency (BRIN)" data-jp="インドネシア国立研究イノベーション庁（BRIN）量子物理学研究センター"></span>
-									</li>
-								</ul>
-								<ul class="info-list mt-2">
-									<li>
-										<strong><span data-jp="2021年8月 &ndash; 2022年1月" data-en="August 2021 &ndash; January 2022"></span></strong>,
-										<span data-jp="実習" data-en="
-											Internship"></span>
-										&mdash; <span data-en="PT Microsoft Indonesia" data-jp="インドネシア・マイクロソフト"></span>
-									</li>
-								</ul>
-							</div>
-							
-							<!-- <div class="row language">
-								<ul class="info-list mt-2">
-									<li>
-										<strong><span data-jp="" data-en="2024 Asia-Europe-Pacific School of High Energy Physics"></span></strong>,
-										<span data-jp="" data-en="Nakhon Pathom, Thailand"></span>
-										&mdash; <span data-en="12 June 2024 &ndash; 25 june 2024" data-jp="2024年6月12日 &ndash; 2024年12月25日"></span>
-									</li>
-								</ul>
-							</div> -->
-
-							<h3 class="section-heading mt-5"
-								data-jp=""
-								data-en="Miscs"><em>Miscellaneous</em>
-							</h3>
-
-						<!-- </div> -->
+							<h3 class="section-heading mt-5" data-jp="受賞歴" data-en="Honors and Awards"><em>Honors and Awards</em></h3>
+							<ul class="info-list mt-2 language">
+								<li>
+									<strong><span data-jp="文部科学省" data-en="MEXT Scholarship"></span></strong>,
+									<span data-jp="修士課程" data-en="for a master course"></span>
+									&mdash; <span data-en="April 2025 &ndash; March 2027" data-jp="2025年4月 &ndash; 2027年3月"></span>
+								</li>
+							</ul>
+						</div>
 					</section>
 
-					<!-- ===== RESEARCH ===== -->
-					<section id="researchContent" class="mb-5 content-section">
-						<!-- <div class="container"> -->
+					<!-- ── RESEARCH ── -->
+					<section id="researchContent" class="content-section">
+						<div class="section-banner-block">
+							<span class="section-banner-eyebrow language" data-jp="ユニタ・アンドリアニ" data-en="Yunita K. Andriani">Yunita K. Andriani</span>
+							<h2 class="section-banner-title language" data-jp="研究" data-en="Research"><em>Research</em></h2>
+						</div>
 
-							<p class="mt-2 justify">
-								<em>I am interested in Beyond the Standard Model (BSM), particularly in Higgs Physics.</em>
-							</p>
+						<div class="section-body">
+							<p class="research-intro"><em>I am interested in Beyond the Standard Model (BSM), particularly in Higgs Physics.</em></p>
 
-							<h3 class="section-heading mt-4"
-								data-jp="論文"
-								data-en="Publications"><em>Publications</em>
-							</h3>
+							<h3 class="section-heading mt-4" data-jp="論文" data-en="Publications"><em>Publications</em></h3>
 
-							<!-- 2025 -->
-							<div class="row mt-3">
+							<div class="mt-3">
 								<div class="year-label">2025</div>
 								<div class="pub-block mt-2">
-									<div class="pub-title">&ldquo;Vacuum Structure of an Extended Standard Model with U(1)_D Symmetry&rdquo;</div>
-									<div class="pub-authors mt-2">
-										Apriadi Salim Adam, <span class="pub-author">Yunita Kristanti Andriani</span>, Bayu Dirgantara
-									</div>
+									<div class="pub-title">Vacuum Structure of an Extended Standard Model with U(1)_D Symmetry</div>
+									<div class="pub-authors mt-2"><span class="pub-author">Yunita Kristanti Andriani</span>, Apriadi Salim Adam, Bayu Dirgantara</div>
 									<div class="pub-links mt-2">
 										<span><i class="fa fa-arrow-up-right-from-square"></i> <a href="https://arxiv.org/abs/2509.05534" target="_blank" class="link-dark">Paper</a></span>
 										<span class="pub-force-margin-left"><i class="fas fa-quote-left"></i> <a href="#" class="link-dark citation">BibTeX</a></span>
 									</div>
 									<div class="d-none">
-										@article{SalimAdam:2025wlp,
-											author = "Salim Adam, Apriadi and Andriani, Yunita Kristanti and Dirgantara, Bayu",
-											title = "{Vacuum Structure of an Extended Standard Model with U(1)_D Symmetry}",
-											eprint = "2509.05534",
-											archivePrefix = "arXiv",
-											primaryClass = "hep-ph",
-											reportNumber = "OU-HET-1288",
-											month = "9",
-											year = "2025"
-										}</div>
+@article{SalimAdam:2025wlp,
+    author = "Salim Adam, Apriadi and Andriani, Yunita Kristanti and Dirgantara, Bayu",
+    title = "{Vacuum Structure of an Extended Standard Model with U(1)_D Symmetry}",
+    eprint = "2509.05534",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "OU-HET-1288",
+    month = "9",
+    year = "2025"
+}</div>
 								</div>
 							</div>
 
-							<!-- 2023 -->
-							<div class="row mt-3">
+							<div class="mt-3">
 								<div class="year-label">2023</div>
 								<div class="pub-block mt-2">
-									<div class="pub-title">&ldquo;Investigating boson sector in an extended standard model with U(1)_D symmetry&rdquo;</div>
-									<div class="pub-authors mt-2">
-										Apriadi Salim Adam, <span class="pub-author">Yunita Kristanti Andriani</span>, Eny Latifah
-									</div>
+									<div class="pub-title">Investigating boson sector in an extended standard model with U(1)_D symmetry</div>
+									<div class="pub-authors mt-2"><span class="pub-author">Yunita Kristanti Andriani</span>, Apriadi Salim Adam, Eny Latifah</div>
 									<div class="pub-links mt-2">
 										<span><i class="fa fa-arrow-up-right-from-square"></i> <a href="https://doi.org/10.1088/1402-4896/acfa49" target="_blank" class="link-dark">Paper</a></span>
 										<span class="pub-force-margin-left"><i class="fas fa-quote-left"></i> <a href="#" class="link-dark citation">BibTeX</a></span>
 									</div>
 									<div class="d-none">
-										@article{SalimAdam:2023lbm,
-											author = "Salim Adam, Apriadi and Andriani, Yunita Kristanti and Latifah, Eny",
-											title = "{Investigating boson sector in an extended standard model with U(1)_D symmetry}",
-											eprint = "2309.06852",
-											archivePrefix = "arXiv",
-											primaryClass = "hep-ph",
-											doi = "10.1088/1402-4896/acfa49",
-											journal = "Phys. Scripta",
-											volume = "98",
-											number = "10",
-											pages = "105306",
-											year = "2023"
-										}</div>
+@article{SalimAdam:2023lbm,
+    author = "Salim Adam, Apriadi and Andriani, Yunita Kristanti and Latifah, Eny",
+    title = "{Investigating boson sector in an extended standard model with U(1)_D symmetry}",
+    eprint = "2309.06852",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1088/1402-4896/acfa49",
+    journal = "Phys. Scripta",
+    volume = "98",
+    number = "10",
+    pages = "105306",
+    year = "2023"
+}</div>
 								</div>
 							</div>
 
-							<h3 class="section-heading mt-5"
-								data-jp=""
-								data-en="Talks"><em>Talks, Posters, &amp; More</em>
-							</h3>
+							<h3 class="section-heading mt-5"><em>Talks, Posters, &amp; More</em></h3>
 
-							<!-- 2026 -->
-							<div class="row mt-3">
+							<div class="mt-3">
 								<div class="year-label">2026</div>
 								<div class="pub-block mt-2">
 									<div class="pub-title">Talk &mdash; &ldquo;Tree-Level Vacuum Stability Analysis of a Multi-Scalar U(1)_D Extended Model&rdquo;</div>
@@ -483,8 +313,7 @@
 								</div>
 							</div>
 
-							<!-- 2025 -->
-							<div class="row mt-3">
+							<div class="mt-3">
 								<div class="year-label">2025</div>
 								<div class="pub-block mt-2">
 									<div class="pub-title">Poster &mdash; &ldquo;Vacuum stability of an extended Higgs sector with multi-scalars under U(1) global symmetries&rdquo;</div>
@@ -492,8 +321,7 @@
 								</div>
 							</div>
 
-							<!-- 2023 -->
-							<div class="row mt-3">
+							<div class="mt-3">
 								<div class="year-label">2023</div>
 								<div class="pub-block mt-2">
 									<div class="pub-title">Talk &mdash; &ldquo;Investigation on Boson Sector and Vacuum Stability of a U(1)_D Extended Standard Model&rdquo;</div>
@@ -501,43 +329,40 @@
 								</div>
 							</div>
 
-							<h3 class="section-heading mt-5"
-								data-jp=""
-								data-en="Grants"><em>Grants</em>
-							</h3>
-
-							<div class="row mt-3">
+							<h3 class="section-heading mt-5"><em>Grants</em></h3>
+							<div class="mt-3">
 								<div class="year-label">2023</div>
 								<div class="pub-block mt-2">
 									<div class="pub-title">State University of Malang's Research Funding Program</div>
 									<div class="pub-authors mt-1">Grant No. 5.4.1/UN32/KP/2023</div>
 								</div>
 							</div>
-
-						<!-- </div> -->
+						</div>
 					</section>
 
-					<!-- ===== BLOG ===== -->
-					<section id="blogContent" class="mb-5 content-section">
-						<!-- <div class="container"> -->
-							<p class="mb-4"><em>Visit me on my personal pages below.</em></p>
+					<!-- ── BLOG ── -->
+					<section id="blogContent" class="content-section mb-5">
+						<div class="section-banner-block">
+							<span class="section-banner-eyebrow language" data-jp="ユニタ・アンドリアニ" data-en="Yunita K. Andriani">Yunita K. Andriani</span>
+							<h2 class="section-banner-title language" data-jp="ブログ" data-en="Personal Blog"><em>Personal Blog</em></h2>
+						</div>
 
+						<div class="section-body">
+							<p class="mb-4"><em>Visit me on my personal pages below.</em></p>
 							<div class="blog-link-row">
 								<span class="blog-icon"><i class="fa-brands fa-medium"></i></span>
 								<a href="https://medium.com/@yunitandrianikristanti" class="link-dark" target="_blank">Medium</a>
 							</div>
-
 							<div class="blog-link-row">
 								<span class="blog-icon"><i class="fa-brands fa-instagram"></i></span>
 								<a href="https://instagram.com/ykandriani" class="link-dark" target="_blank">Instagram</a>
 							</div>
-						<!-- </div> -->
+						</div>
 					</section>
 
 				</div><!-- /mainPanel -->
-			</div><!-- /row content -->
-		</div><!-- /container #main-content -->
-
+			</div><!-- /row -->
+		</div><!-- /container -->
 
 		<!-- Scripts -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
@@ -546,5 +371,4 @@
 		<script src="assets/js/languageManager.js"></script>
 		<script src="assets/js/main.js"></script>
 	</body>
-
 </html>
