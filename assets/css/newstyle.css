@@ -180,6 +180,49 @@
 
     .lang-flag { height: 12px; width: 18px; display: block; }
 
+/* ===== FLOATING BUTTONS ===== */
+
+    .options-button {
+    	position: fixed;
+    	height: 42px;
+    	width: 42px;
+    	cursor: pointer;
+    	border-radius: 50%;
+    	bottom: 24px;
+    	right: 24px;
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	font-size: 0.95rem;
+    	background: var(--surface);
+    	box-shadow: 0 4px 18px var(--shadow-hover);
+    	border: 1px solid var(--border);
+    	transition: transform 0.2s ease, box-shadow 0.2s ease;
+    	z-index: 1200;
+    	color: var(--text);
+    }
+    
+    .options-button:hover {
+    	transform: scale(1.08);
+    }
+    
+    #options-toggler { transition: transform 0.25s ease; }
+    
+    #theme {
+    	bottom: 76px;
+    	right: 24px;
+    }
+    
+    #lan {
+    	bottom: 128px;
+    	right: 24px;
+    }
+    
+    .lang-flag {
+    	height: 14px;
+    	width: 21px;
+    }
+
     /* Mobile nav toggle */
     .nav-toggle {
       display: none;
