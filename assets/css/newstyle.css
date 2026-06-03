@@ -254,11 +254,12 @@
 
     /* ── HERO ── */
     #homeContent {
-      min-height: 72vh;
+      min-height: 88vh;
       display: flex;
       align-items: center;
       justify-content: center;
       background-image: url('assets/images/BG.png');
+      background-color:#2a1a0e;
       background-size: cover;
       background-position: center;
       position: relative;
