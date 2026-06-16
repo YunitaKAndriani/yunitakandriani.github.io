@@ -426,8 +426,8 @@
 
     .section-title {
       font-family: 'EB Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 400;
+      font-size: 1.35rem;
+      font-weight: 300;
       font-style: italic;
       color: var(--heading);
       padding-bottom: 10px;
@@ -471,7 +471,7 @@
     .entry { margin-bottom: 1.4rem; }
 
     .entry-year {
-      font-size: 0.7rem;
+      font-size: 1.rem;
       font-weight: 500;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -481,7 +481,7 @@
 
     .entry-title {
       font-family: 'EB Garamond', serif;
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       color: var(--heading);
       font-weight: 500;
       line-height: 1.45;
